@@ -5,6 +5,7 @@
     box-sizing: border-box;
     /* Add more styles as needed */
 }
+
 /*IMAGES*/
 .main-img{
     width: 50%;
@@ -16,7 +17,6 @@ body {
 h1, h2, h3 {
     font-family: 'Nunito', sans-serif;
 }
-
 /*NAV BAR*/
 nav{
     padding: 1.5%;
@@ -34,31 +34,26 @@ nav{
     width: 100%;
     justify-content: space-around;
 }
-/* ITEM ITSELF*/
+
+/*ONLY FOR CLOTHING*/
 .container_items{
-    padding-bottom: 20px;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
+    font-family: Arial, sans-serif;
+    margin: 20px;
     display: flex;
     flex-direction: row;
-    padding-top: 20px;
-}
-.clothing-info{
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
-    
 }
-.clothing-item{
-    padding-top: 50px;
-}
+.clothing-item {
+    width: 23%;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
 
-.reviews_container{
-    padding-bottom: 20px;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
 }
