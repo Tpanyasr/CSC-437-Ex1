@@ -1,82 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="../styles/individual.css">
+  <head>
+    <link rel="stylesheet" href="../styles/individual.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script
+    src="https://kit.fontawesome.com/975639f095.js"
+    crossorigin="anonymous"
+    ></script>
     <!-- Link for the font  -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+    />
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clothing Items</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <img src="" alt="Logo">
-        <ul class= "link_container">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <img src="../../../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+      <div class="link_container">
+        <a class="nav_link" href="../clothingitems.html">Home</a>
+        <a class="nav_link" href="#about">About</a>
+        <a class="nav_link" href="#services">Profile</a>
+        <a class="nav_link" href="#contact">Shopping Cart</a>
+      </div>
     </nav>
-
-
-<div class = "container_items">
-    <img class= "main-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IlNBBPRL6OuzCgfJtcR0p7Nst8PfuhsLSA&usqp=CAU" alt="T-shirt Image" />
-    <article class="clothing-info">
-        <h1>Mugler H&M Printed T-shirt (Mens) White</h1>
-        <a href="./hamshirt1.html" class="buy-link">Buy now</a>
+    
+    <div class="container_items">
+      <img
+      class="main-img"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IlNBBPRL6OuzCgfJtcR0p7Nst8PfuhsLSA&usqp=CAU"
+      alt="T-shirt Image"
+      />
+      <article class="clothing-info">
+        <h1 class="clothing-title">Mugler H&M Printed T-shirt (Mens) White</h1>
+        <div class = "item_name">
+          <p class="price">$125.00</p>
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+        </div>
+        <p><strong>Color:</strong> Red</p>
+        <div class="clothing-colors">
+          <div class="circle" style="background-color: #5eb3ec"></div>
+          <div class="circle" style="background-color: #6b3727"></div>
+          <div class="circle" style="background-color: #25bd76"></div>
+          <div class="circle_chosen" style="background-color: #ee2727"></div>
+        </div>
+        <a href="./hamshirt1.html" class="buy-link"></a>
         <section class="details">
-            <a href="../ham.html">
-                <h2>Brand: H&M</h2>
-            </a>
-            <p>Material: Cotton</p>
-            <p>Price: $125.00</p>
-            <p>Category: Shirt</p>
-            <p>Size: S-XXL</p>
+          <!-- <a href="../ham.html">
+            <h2>Brand: H&M</h2>
+          </a> -->
+          
+          <div class="size_options">
+            <div class="size-box">XS</div>
+            <div class="size-box">S</div>
+            <div class="size-box">M</div>
+            <div class="size-box">L</div>
+            <div class="size-box">XL</div>
+            <div class="size-box">XXL</div>
+          </div>
+          
+          <div class="add-to-bag-container">
+            <input type="number" class="quantity-input" value="1" min="1" />
+            <button class="add-to-bag-button">Add to Bag</button>
+          </div>
         </section>
-      
-            
+      </article>
+    </div>
 
-    </article>
-</div>
-
-<h2>Reviews</h2>
-<div class = reviews_container>
-
-    <article class="review-item">
-        <header>
-            <p>
-                <h3>User: </h3><a href="">Thomas</a> Score: 10/10
-            </p>
-            <p>Date: 12/3/45</p>
+    <h2>Reviews</h2>
+    <div class="reviews_container">
+      <article class="review-item">
+        <header class="review-header">
+          <a href="">Thomas</a>
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
         </header>
+        <p>Date: 12/3/45</p>
         <section class="review-contenet">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem soluta atque illum ullam sint, ipsam iure molestiae provident magnam quidem veniam expedita fugiat ducimus necessitatibus obcaecati odio quae eius omnis.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+            soluta atque illum ullam sint, ipsam iure molestiae provident magnam
+            quidem veniam expedita fugiat ducimus necessitatibus obcaecati odio
+            quae eius omnis.
+          </p>
         </section>
-    </article>
-</div>
+      </article>
+    </div>
 
-<h2>Other Clothing Recommendations</h2>
+    <h2>Other Clothing Recommendations</h2>
 
-<div class = "recommendations_container">
-    <article class="clothing-item">
+    <div class="recommendations_container">
+      <article class="clothing-item">
         <header>
-            <h1>Relaxed Fit Twill Shirt</h1>
-            <p>Material: Cotton</p>
+          <h1>Relaxed Fit Twill Shirt</h1>
+          <p>Material: Cotton</p>
         </header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDOerjALLQ2voL9Iij2GpOLCnrf9OktGfWqYO05bhBlnQTVPOU8RRsNYYgAXAvLP69V1s&usqp=CAU" alt="T-shirt Image" />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDOerjALLQ2voL9Iij2GpOLCnrf9OktGfWqYO05bhBlnQTVPOU8RRsNYYgAXAvLP69V1s&usqp=CAU"
+          alt="T-shirt Image"
+        />
         <section class="details">
-            <h3>Brand: H&M</h3>
-            <p>Price: $9.99</p>
-            <p>Category: Shirt</p>
-            <p>Size: S-XXL</p>
+          <h3>Brand: H&M</h3>
+          <p>Price: $9.99</p>
+          <p>Size: S-XXL</p>
         </section>
-        <nav class="links">
-            <a href="./hamshirt2.html" class="buy-link">Buy now</a>
-            
-        </nav>
-    </article>
-</div>
-</body>
+       
+      </article>
+    </div>
+  </body>
 </html>

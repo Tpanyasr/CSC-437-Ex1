@@ -1,25 +1,23 @@
 * {
-   
     box-sizing: border-box;
     /* Add more styles as needed */
-}
-
-body {
+  }
+  
+  body {
     margin: 0;
     padding-left: 15px;
     padding-right: 10px;
   }
-
-/*IMAGES*/
-.main-img{
+  /*IMAGES*/
+  .main-img {
     width: 50%;
-}
-body {
-    font-family: 'Nunito', sans-serif;
-}
-
-/*NAV BAR*/
-nav {
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /*NAV BAR*/
+  nav {
     padding: 1.5%;
     padding-left: 5%;
     display: flex;
@@ -43,8 +41,9 @@ nav {
     width: 10%;
     height: auto;
   }
-/*ONLY FOR CLOTHING*/
-.container_items{
+
+  /* ITEMS */
+  .container_items{
     font-family: Arial, sans-serif;
     margin: 20px;
     display: flex;

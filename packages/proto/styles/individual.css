@@ -1,64 +1,180 @@
 * {
-    margin: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-sizing: border-box;
-    /* Add more styles as needed */
+  box-sizing: border-box;
+  /* Add more styles as needed */
+}
+
+body {
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 10px;
 }
 /*IMAGES*/
-.main-img{
-    width: 50%;
+.main-img {
+  max-width: 662px;
+  width: 50%;
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 body {
-    font-family: 'Nunito', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3 {
-    font-family: 'Nunito', sans-serif;
-}
 
 /*NAV BAR*/
-nav{
-    padding: 1.5%;
-    padding-left: 5%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
+nav {
+  padding: 1.5%;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom-color: black;
+  border-width: 2px;
+  border-bottom-style: solid;
 }
-.link_container{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-/* ITEM ITSELF*/
-.container_items{
-    padding-bottom: 20px;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
-    display: flex;
-    flex-direction: row;
-    padding-top: 20px;
-}
-.clothing-info{
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    flex-direction: column;
-    justify-content: space-around;
-    
-}
-.clothing-item{
-    padding-top: 50px;
+.link_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
-.reviews_container{
-    padding-bottom: 20px;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
+.nav_link{
+    text-decoration: none;
+}
+.logo{
+  width: 10%;
+  height: auto;
+}
+/* ITEM ITSELF*/
+.clothing-title{
+    font-weight: normal;
+}
+.item_name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.container_items {
+  padding-bottom: 20px;
+  border-bottom-color: black;
+  border-width: 2px;
+  border-bottom-style: solid;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+.clothing-info {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.clothing-item {
+  padding-top: 50px;
+}
+.price{
+    color: rgb(31, 29, 29);
+    font-size: 30px;
+    font-weight: bold;
+}
+.clothing-colors {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.circle_chosen {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border: 5px solid transparent; /* Set the border width and make it transparent initially */
+    outline: 5px solid #615855; /* Set the outline width and color */
+    cursor: pointer;
+}
+
+.size_options{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.size-box {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    width: 80px; /* Set a common width for all boxes */
+    height: 40px; /* Set a common height for all boxes */
+}
+.add-to-bag-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.quantity-input,
+.add-to-bag-button {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.quantity-input{
+    padding: 10px;
+}
+
+.quantity-input {
+    width: 50px; /* Adjust the width of the input box */
+    text-align: center;
+    margin-right: 10px;
+    border: 1px solid #ccc; /* Optional: Add border for a clearer separation */
+}
+
+.add-to-bag-button {
+    background-color: #3358aa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+/* REVIEW */
+.review-header {
+    display: flex;
+}
+.star {
+    margin-left: 10px;
+}
+.checked {
+    color: orange;
+}
+
+.reviews_container {
+  padding-bottom: 20px;
+  border-bottom-color: black;
+  border-width: 2px;
+  border-bottom-style: solid;
+}
+
+.review-item{
+  margin-left: 30px;;
+}
+
+/* RECCOMENDATIONS */
+.clothing-item{
+    margin-left: 30px;
 }
