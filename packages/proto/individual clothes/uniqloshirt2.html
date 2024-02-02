@@ -1,99 +1,128 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="../styles/individual.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script
+    src="https://kit.fontawesome.com/975639f095.js"
+    crossorigin="anonymous"
+    ></script>
+    <!-- Link for the font  -->
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+    />
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clothing Items</title>
-    <!-- <style>
-        #container_items{
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .clothing-item {
-            width: 23%;
-            border: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    </style> -->
-</head>
-<body>
-
-
-
-<div class = "container_items">
-    <h1>Crew Neck Short Sleeved T-Shirt</h1>
-
-    <article class="clothing-item">
-        <header>
-        </header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9KvXyW17lWNQrOZLz1aQ_PEOO6yxNSMpjNg&usqp=CAU" alt="T-shirt Image" />
+  </head>
+  <body>
+    <nav>
+      <img src="../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+      <div class="link_container">
+        <a class="nav_link" href="../clothingitems.html">Home</a>
+        <a class="nav_link" href="#about">About</a>
+        <a class="nav_link" href="#services">Profile</a>
+        <a class="nav_link" href="#contact">Shopping Cart</a>
+      </div>
+    </nav>
+    
+    <div class="container_items">
+      <img
+      class="main-img"
+ src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9KvXyW17lWNQrOZLz1aQ_PEOO6yxNSMpjNg&usqp=CAU" alt="T-shirt Image"
+      alt="T-shirt Image"
+      />
+      <article class="clothing-info">
+        <h1 class="clothing-title">Crew Neck Short Sleeved T-Shirt</h1>
+        <div class = "item_name">
+          <p class="price">$19.99</p>
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+        </div>
+        <p><strong>Color:</strong> Red</p>
+        <div class="clothing-colors">
+          <div class="circle" style="background-color: #5eb3ec"></div>
+          <div class="circle" style="background-color: #6b3727"></div>
+          <div class="circle" style="background-color: #25bd76"></div>
+          <div class="circle_chosen" style="background-color: #ee2727"></div>
+        </div>
+        <a href="./hamshirt1.html" class="buy-link"></a>
         <section class="details">
-            <a href="../uniqlo.html">
-
-                <h3>Brand: Uniqlo</h3>
-            </a>
-            <p>Material: Cotton</p>
-            <p>Price: $19.99</p>
-            <p>Category: Shirt</p>
-            <p>Size: S-XXL</p>
+          <!-- <a href="../ham.html">
+            <h2>Brand: H&M</h2>
+          </a> -->
+          
+          <div class="size_options">
+            <div class="size-box">XS</div>
+            <div class="size-box">S</div>
+            <div class="size-box">M</div>
+            <div class="size-box">L</div>
+            <div class="size-box">XL</div>
+            <div class="size-box">XXL</div>
+          </div>
+          
+          <div class="add-to-bag-container">
+            <input type="number" class="quantity-input" value="1" min="1" />
+            <button class="add-to-bag-button">Add to Bag</button>
+          </div>
         </section>
-        <nav class="links">
-            <a href="./uniqloshirt2.html" class="buy-link">Buy now</a>
-            
-        </nav>
-    </article>
-<div>
-    <br>
-    <br>
-<h2>Reviews</h2>
-<div class = reviews_container>
+      </article>
+    </div>
 
-    <article class="review-item">
-        <header>
-            <p>
-                <h3>User: </h3><a href="">Thomas</a> Score: 10/10
-            </p>
-            <p>Date: 12/3/45</p>
+    <h2>Reviews</h2>
+    <div class="reviews_container">
+      <article class="review-item">
+        <header class="review-header">
+          <a href="../profile.html">Thomas</a>
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
         </header>
+        <p>Date: 12/3/45</p>
         <section class="review-contenet">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem soluta atque illum ullam sint, ipsam iure molestiae provident magnam quidem veniam expedita fugiat ducimus necessitatibus obcaecati odio quae eius omnis.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+            soluta atque illum ullam sint, ipsam iure molestiae provident magnam
+            quidem veniam expedita fugiat ducimus necessitatibus obcaecati odio
+            quae eius omnis.
+          </p>
         </section>
-    </article>
-</div>
-<br>
-<br>
-<h2>Other Clothing Recommendations</h2>
-<br>
-<br>
-<div class = "recommendations_container">
-    <article class="clothing-item">
+      </article>
+    </div>
+
+    <h2>Other Clothing Recommendations</h2>
+
+    <div class="recommendations_container">
+      <article class="clothing-item">
         <header>
-            <h1>Oxford Long-Sleeve Shirt</h1>
-            <p>Material: Cotton</p>
+          <a href="./uniqloshirt1.html">
+              <h1>Oxford Long-Sleeve Shirt</h1>
+          </a>
+          <p>Material: Cotton</p>
         </header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0umZCwz2-zJu343QE1qX-plkbppqkVfLvdg&usqp=CAU" alt="T-shirt Image" />
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0umZCwz2-zJu343QE1qX-plkbppqkVfLvdg&usqp=CAU"  />
         <section class="details">
             <h3>Brand: Uniqlo</h3>
             <p>Price: $19.99</p>
             <p>Category: Shirt</p>
             <p>Size: S-XXL</p>
         </section>
-        <nav class="links">
-            <a href="./uniqloshirt1.html" class="buy-link">Buy now</a>
-            
-        </nav>
-    </article>
-</div>
-</body>
+      </article>
+    </div>
+  </body>
 </html>

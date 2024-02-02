@@ -4,33 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="./styles/profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script
+    src="https://kit.fontawesome.com/975639f095.js"
+    crossorigin="anonymous"
+    ></script>
+    <!-- Link for the font  -->
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+    />
+    
 </head>
 <body>
-
-<div class="user-profile">
-    <h1>User Profile - Thomas</h1>
-    <section class="profile-info">
-        <h2>Contact Information</h2>
-        <p>Email: thomas@example.com</p>
-    </section>
-    <section class="clothing-sizes">
-        <h2>Clothing Sizes</h2>
-        <p>Shirt Size: Medium</p>
-        <p>Pants Size: 32</p>
-        <!-- Add more size information as needed -->
-    </section>
-    <section class="user-review">
-        <h2>Your Review</h2>
-        <article class="clothing-item-review">
-            <header>
-                <h1>Oxford Long-Sleeve Shirt</h1>
-                <p>Brand: Uniqlo</p>
-            </header>
-            <p>Review: This shirt is comfortable and fits perfectly!</p>
-        </article>
-        <!-- Add more reviews for other clothing items as needed -->
-    </section>
+    <nav>
+        <img src="./images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+        <div class="link_container">
+          <a class="nav_link" href="./clothingitems.html">Home</a>
+          <a class="nav_link" href="#about">About</a>
+          <a class="nav_link" href="./profile.html">Profile</a>
+          <a class="nav_link" href="./shoppingcart.html">Shopping Cart</a>
+        </div>
+      </nav>
+<div class = "pfp_container">
+    <div class="circle" style="background-color: #f4f4f4"></div>
 </div>
-
+<div class="user-profile">
+    <section class="user-info">
+        <h2>Your Profile</h2>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value = "Thomas Panyasrivinit"><br>
+            <label for="contact" >Contact Info:</label><br>
+            <input type="text" value = "thomaspanyasrivinit@gmail.com"id="contact" name="contact"><br>
+            <!-- Add more information fields as needed -->
+        </form>
+    </section>
+    <section class="user-size">
+        <h2>Your Size</h2>
+        <form>
+            <label for="size">Shirt Size:</label><br>
+            <input type="text" id="size" value = "XL" name="size"><br>
+            <label for="size">Pants Size:</label><br>
+            <input type="text" id="size" value = "33 X 32" name="size"><br>
+            <!-- Add more size information as needed -->
+        </form>
+    </section>
+    <section class="user-reviews">
+        <h2>Your Reviews</h2>
+        <div>
+            <h3>Review 1:</h3>
+            <p id="review1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h3>Review 2:</h3>
+            <p id="review2">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <!-- Add more reviews as needed -->
+        </div>
+    </section>
+    
+</div>
 </body>
 </html>

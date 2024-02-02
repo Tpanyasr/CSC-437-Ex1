@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-   
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment Information</title>
-</head>
-<body>
-
+    <link rel="stylesheet" href="./styles/payment.css " />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/975639f095.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <img
+        src="./images/Bobateadog-logos_transparent.png"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="link_container">
+        <a class="nav_link" href="../clothingitems.html">Home</a>
+        <a class="nav_link" href="#about">About</a>
+        <a class="nav_link" href="./profile.html">Profile</a>
+        <a class="nav_link" href="./shoppingcart.html">Shopping Cart</a>
+      </div>
+    </nav>
     <h2>Payment Information</h2>
 
     <form>
-        
-        <label for="cardNumber">Credit Card Number:</label>
-        <input type="text" id="cardNumber" name="cardNumber" required>
+      <label for="cardNumber">Credit Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" required />
 
-        <label for="expiryDate">Expiry Date:</label>
-        <input type="text" id="expiryDate" name="expiryDate" required>
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" id="expiryDate" name="expiryDate" required />
 
-        <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" name="cvv" required>
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" required />
 
-        <button type="button" onclick="alert('Payment information submitted.');">Submit Payment Information</button>
+      <button type="button" onclick="alert('Payment information submitted.');">
+        Submit Payment Information
+      </button>
     </form>
-
-    <p>Pick up option is also available at this address: Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
-</body>
+    <div class="other-option">
+      <p>
+        Pick up option is also available at this address: Lorem ipsum, dolor sit
+        amet consectetur adipisicing.
+      </p>
+    </div>
+  </body>
 </html>
