@@ -9,16 +9,7 @@
   justify-content: space-between;
   width: 100%;
 }
-.container_items {
-  padding-bottom: 20px;
-  border-bottom-color: black;
-  border-width: 2px;
-  border-bottom-style: solid;
-  display: flex;
-  flex-direction: row;
-  padding-top: 20px;
-  margin-top: 10px;
-}
+
 .clothing-info {
   display: flex;
   align-items: start;
@@ -117,6 +108,7 @@
 }
 
 .reviews_container {
+  border-top-style: solid;
   padding-bottom: 20px;
   border-width: 2px;
   border-bottom-style: solid;
