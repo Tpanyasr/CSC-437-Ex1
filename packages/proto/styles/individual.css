@@ -1,51 +1,4 @@
-* {
-  box-sizing: border-box;
-  /* Add more styles as needed */
-}
 
-body {
-  margin: 0;
-  padding-left: 15px;
-  padding-right: 10px;
-}
-/*IMAGES*/
-.main-img {
-  max-width: 662px;
-  width: 50%;
-  height: auto;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-
-/*NAV BAR*/
-nav {
-  padding: 1.5%;
-  padding-left: 5%;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  border-bottom-color: black;
-  border-width: 2px;
-  border-bottom-style: solid;
-}
-.link_container {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.nav_link{
-    text-decoration: none;
-}
-.logo{
-  width: 10%;
-  height: auto;
-}
 /* ITEM ITSELF*/
 .clothing-title{
     font-weight: normal;
@@ -78,7 +31,7 @@ nav {
 }
 .price{
     color: rgb(31, 29, 29);
-    font-size: 30px;
+    font-size: var(--font-size-big);
     font-weight: bold;
 }
 .clothing-colors {
@@ -165,7 +118,6 @@ nav {
 
 .reviews_container {
   padding-bottom: 20px;
-  border-bottom-color: black;
   border-width: 2px;
   border-bottom-style: solid;
 }
@@ -174,7 +126,11 @@ nav {
   margin-left: 30px;;
 }
 
-/* RECCOMENDATIONS */
-.clothing-item{
-    margin-left: 30px;
+
+/* Add the following code to set a fixed width and height for the images */
+.main-img{
+    width: 200px; /* Set the desired width for the images */
+    height: 200px; /* Set the desired height for the images */
+    object-fit: cover; /* Ensure the images maintain their aspect ratio */
 }
+

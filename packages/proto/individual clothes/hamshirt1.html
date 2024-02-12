@@ -3,6 +3,9 @@
   <head>
     <link rel="stylesheet" href="../styles/individual.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/page.css" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <script
@@ -21,12 +24,13 @@
   </head>
   <body>
     <nav>
-      <img src="../../../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
-      <div class="link_container">
-        <a class="nav_link" href="../clothingitems.html">Home</a>
-        <a class="nav_link" href="#about">About</a>
-        <a class="nav_link" href="#services">Profile</a>
-        <a class="nav_link" href="#contact">Shopping Cart</a>
+      <a href="../index.html" class ="logo-container">
+        <img src="../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+      </a>      <div class="link_container">
+        <a class="nav_link" href="../index.html">Home</a>
+        <a class="nav_link" href="">About</a>
+        <a class="nav_link" href="../profile.html">Profile</a>
+        <a class="nav_link" href="../shoppingcart.html">Shopping Cart</a>
       </div>
     </nav>
     
@@ -78,7 +82,7 @@
       </article>
     </div>
 
-    <h2>Reviews</h2>
+    <h2 class = "section-name">Reviews</h2>
     <div class="reviews_container">
       <article class="review-item">
         <header class="review-header">
@@ -103,28 +107,26 @@
       </article>
     </div>
 
-    <h2>Other Clothing Recommendations</h2>
+    <h2 class = "section-name">Other Clothing Recommendations</h2>
 
-    <div class="recommendations_container">
+    <a href="./hamshirt2.html" class="buy-link">
       <article class="clothing-item">
-        <header>
-          <a href="./hamshirt2.html">
+        <header class = "header-box">
 
             <h1>Relaxed Fit Twill Shirt</h1>
-          </a>
-          <p>Material: Cotton</p>
-        </header>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDOerjALLQ2voL9Iij2GpOLCnrf9OktGfWqYO05bhBlnQTVPOU8RRsNYYgAXAvLP69V1s&usqp=CAU"
+          </header>
+          <img class = "recommendation-img"
+          src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F5a%2F8b%2F5a8bbb899b64947baaff01a90f138393150dadb2.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shirts_casual%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]"
           alt="T-shirt Image"
-        />
-        <section class="details">
-          <h3>Brand: H&M</h3>
-          <p>Price: $9.99</p>
-          <p>Size: S-XXL</p>
-        </section>
-       
-      </article>
-    </div>
+          />
+          <section class="details">
+            <p>Material: Cotton</p>
+            <h3>Brand: H&M</h3>
+            <p>Price: $9.99</p>
+            <p>Size: S-XXL</p>
+          </section>
+          
+        </article>
+      </a>
   </body>
 </html>

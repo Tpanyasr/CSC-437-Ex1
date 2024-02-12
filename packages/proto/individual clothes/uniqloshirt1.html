@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="../styles/individual.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/page.css" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <script
     src="https://kit.fontawesome.com/975639f095.js"
@@ -22,12 +25,14 @@
   </head>
   <body>
     <nav>
-      <img src="../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+      <a href="../index.html"class ="logo-container">
+        <img src="../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+      </a>
       <div class="link_container">
-        <a class="nav_link" href="../clothingitems.html">Home</a>
-        <a class="nav_link" href="#about">About</a>
-        <a class="nav_link" href="#services">Profile</a>
-        <a class="nav_link" href="#contact">Shopping Cart</a>
+        <a class="nav_link" href="../index.html">Home</a>
+        <a class="nav_link" href="">About</a>
+        <a class="nav_link" href="../profile.html">Profile</a>
+        <a class="nav_link" href="../shoppingcart.html">Shopping Cart</a>
       </div>
     </nav>
     
@@ -79,7 +84,7 @@
       </article>
     </div>
 
-    <h2>Reviews</h2>
+    <h2 class = "section-name">Reviews</h2>
     <div class="reviews_container">
       <article class="review-item">
         <header class="review-header">
@@ -104,25 +109,26 @@
       </article>
     </div>
 
-    <h2>Other Clothing Recommendations</h2>
+    <h2 class = "section-name">Other Clothing Recommendations</h2>
 
-    <div class="recommendations_container">
+    <!-- <a href="./individual clothes/uniqloshirt2.html" class="buy-link">
+        <article class="clothing-item">
+          <header class = "header-box"> -->
+    <!-- <div class="recommendations_container" -->
+      <a class = "buy-link" href="./uniqloshirt2.html">
       <article class="clothing-item">
-        <header>
-          <a href="./uniqloshirt2.html">
+        <header class = "header-box" >
               <h1>Crew Neck Short Sleeved T-Shirt</h1>
-          </a>
-          <p>Material: Cotton</p>
-        </header>
-
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9KvXyW17lWNQrOZLz1aQ_PEOO6yxNSMpjNg&usqp=CAU" alt="T-shirt Image" />
-        <section class="details">
-            <h3>Brand: Uniqlo</h3>
-            <p>Price: $19.99</p>
-            <p>Category: Shirt</p>
-            <p>Size: S-XXL</p>
-        </section>
-      </article>
-    </div>
+            </header>
+            
+            <img class ="recommendation-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9KvXyW17lWNQrOZLz1aQ_PEOO6yxNSMpjNg&usqp=CAU" alt="T-shirt Image" />
+            <section class="details">
+              <p>Material: Cotton</p>
+              <h3>Brand: Uniqlo</h3>
+              <p>Price: $19.99</p>
+              <p>Category: Shirt</p>
+              <p>Size: S-XXL</p>
+            </section>
+      </a>
   </body>
 </html>

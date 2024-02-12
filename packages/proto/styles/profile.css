@@ -1,40 +1,3 @@
-* {
-  box-sizing: border-box;
-  /* Add more styles as needed */
-}
-
-body {
-  margin: 0;
-  padding-left: 15px;
-  padding-right: 10px;
-}
-
-/*NAV BAR*/
-nav {
-  padding: 1.5%;
-  padding-left: 5%;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  border-bottom-color: black;
-  border-width: 2px;
-  border-bottom-style: solid;
-}
-.link_container {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.nav_link {
-  text-decoration: none;
-}
-.logo {
-  width: 10%;
-  height: auto;
-}
-
 .circle {
   width: 200px;
   height: 200px;
@@ -83,7 +46,7 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: var(--font-size-small);
 }
 
 .user-profile input[type="submit"] {
@@ -122,6 +85,6 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   min-height: 100px;
 }
