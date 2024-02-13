@@ -21,6 +21,32 @@ body {
     object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
 
 }
+.clothing-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+
+}
+.store-img-container{
+    max-height: 150px;
+    max-width: 150px;
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    border-style: solid;
+    box-shadow: 5px 5px #ccc;
+    border-color: #ccc;
+    border-width: 1px;
+    
+}
+
+.store-img{
+    object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
+    width: 100%;
+    height: 100%;
+}
 .card-img, .recommendation-img{
     max-height: 225px;
     max-width: 225px;
@@ -35,53 +61,53 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+
 /*NAV BAR*/
 nav {
-  padding: 1.5%;
-  padding-left: 5%;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  border-bottom-color: black;
-  border-width: 2px;
-  border-bottom-style: solid;
-}
-.link_container {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.nav_link {
-  text-decoration: none;
-}
-.logo {
-  width: 100%;
-  height: auto;
-}
-.logo-container{
+    padding: 1.5%;
+    padding-left: 5%;
     display: flex;
-    justify-content: center;
-    width:14%
-}
-
-button {
-  background-color: #171209;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-
-}
-
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom-color: black;
+    border-width: 2px;
+    border-bottom-style: solid;
+  }
+  .link_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .nav_link {
+    text-decoration: none;
+  }
+  .logo {
+    width: 100%;
+    height: auto;
+  }
+  .logo-container{
+      display: flex;
+      justify-content: center;
+      width:14%
+  }
+  
+  button {
+    background-color: #171209;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+  
+  }
 
 /* FOR CARDS */
 /*ONLY FOR CLOTHING*/
