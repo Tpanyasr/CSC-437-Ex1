@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
-import './drop-down'; // Importing drop-down component
+import "./drop-down"; // Importing drop-down component
 
 @customElement("app-navbar")
 export class Navbar extends LitElement {
@@ -8,44 +8,65 @@ export class Navbar extends LitElement {
     return html`
       <nav>
         <a href="../app/index.html" class="logo-container">
-          <img
-            src="../images/logo.png"
-            alt="Logo"
-            class="logo"
-          />
+          <img src="../images/logo.png" alt="Logo" class="logo" />
         </a>
-        <drop-down>
-          <img src="../images/profilepic.png" alt="user" />
-          <ul slot="menu">
-            <li><a href="../nav_pages/profile.html">Profile</a></li>
-            <li><a href="../nav_pages/shoppingcart.html">Shopping Cart</a></li>
-            <li><a href="">Wishlist</a></li>
-          </ul>
-        </drop-down>
+        <div class="link_container">
+          <a href="../nav_pages/stores.html">Stores</a>
+          <a href="./index.html">About</a>
+          <drop-down>
+            <img src="../images/profilepic.png" alt="user" />
+            <ul slot="menu">
+              <li><a href="../nav_pages/profile.html">Profile</a></li>
+              <li>
+                <a href="../nav_pages/shoppingcart.html">Shopping Cart</a>
+              </li>
+              <li><a href="">Wishlist</a></li>
+            </ul>
+          </drop-down>
+        </div>
       </nav>
     `;
   }
 
   static styles = css`
-    /* Add your CSS styles here */
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      color: #ffa500;
+    }
+    /*NAV BAR*/
     nav {
-      /* Your existing styles for the nav element */
+      padding: 1.5%;
+      padding-left: 5%;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-around;
+      border-bottom-color: black;
+      border-width: 2px;
+      border-bottom-style: solid;
     }
-
-    .logo-container {
-      /* Your existing styles for the logo container */
-    }
-
-    .logo {
-      /* Your existing styles for the logo */
-    }
-
     .link_container {
-      /* Your existing styles for the link container */
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-around;
     }
 
     .nav_link {
-      /* Your existing styles for the navigation links */
+      text-decoration: none;
+    }
+    .logo {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      width: 25%;
     }
   `;
 }
