@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
 import "./drop-down"; // Importing drop-down component
-
+import "./toggle"; // Importing toggle component
 @customElement("app-navbar")
 export class Navbar extends LitElement {
   render() {
@@ -21,6 +21,7 @@ export class Navbar extends LitElement {
                 <a href="../nav_pages/shoppingcart.html">Shopping Cart</a>
               </li>
               <li><a href="">Wishlist</a></li>
+              <li><dark-mode></dark-mode></li>
             </ul>
           </drop-down>
         </div>

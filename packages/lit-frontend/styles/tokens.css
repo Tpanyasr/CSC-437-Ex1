@@ -12,3 +12,10 @@
     --section-name-margin-top: 20px;
     --section-name-margin-left: 30px;
 }
+
+.dark-mode {
+    --background-color: #333; /* Dark background */
+    --card-border-color: #555; /* Darker border color for cards */
+    --card-background-color: #444; /* Darker background for cards */
+    --text-color: #fff; /* Light text color */
+  }
