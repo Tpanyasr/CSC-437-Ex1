@@ -23,17 +23,9 @@ export class ClothingItem extends LitElement {
   }
 
   static styles = css`
-    .container_items {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    .clothing-item {
+    article {
       border: 1px solid #ccc;
-      background-color: var(--card-color);
+      background-color: rgb(250, 253, 255);
       padding: 10px;
       border-radius: 5px;
       box-shadow: 1px 1px #ccc;
