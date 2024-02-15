@@ -1,34 +1,67 @@
-import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-@customElement("dark-mode")
-export class Toggle extends LitElement {
-  isDarkMode: boolean = false;
-
-  toggleDarkMode() {
-    this.isDarkMode = !this.isDarkMode;
-    // Dispatch an event to notify other components about the mode change
-    this.dispatchEvent(new CustomEvent("dark-mode-toggled", {
-      detail: { isDarkMode: this.isDarkMode }
-    }));
-  }
+@customElement("toggle-switch")
+export class ToggleSwitchElement extends LitElement {
+  @property({ reflect: true, type: Boolean })
+  on: boolean = false;
 
   render() {
-    return html`
-      <button @click=${this.toggleDarkMode}>
-        ${this.isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      </button>
-    `;
+    return html`<label>
+      <slot>Label</slot>
+      <span class="slider">
+        <input type="checkbox" @change=${this._handleChange} />
+      </span>
+    </label>`;
   }
 
   static styles = css`
-    button {
-      background-color: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
+    :host {
+      display: block;
+    }
+    label {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .slider {
+      display: inline-block;
+      border: 1px solid var(--color-slider-checked);
+      border-radius: 0.75em;
+      background-color: var(--color-slider-background);
+      margin-left: 10px;
+      height: 1.5em;
+      width: 2.75em;
+      position: relative;
+      transition: background-color
+      var(--time-transition-control);
+    }
+    .slider:has(input:checked) {
+      background-color: var(--color-slider-checked);
+    }
+    input {
+      appearance: none;
+      background-color: var(--color-slider-forground);
+      border-radius: 50%;
+      width: 1.5em;
+      height: 1.5em;
+      vertical-align: center;
+      position: absolute;
+      left: 0;
+      transition: left var(--time-slider-transition);
+    }
+    input:checked {
+      left: 1.5em;
     }
   `;
+  _handleChange(ev: Event) {
+    const target = ev.target as HTMLInputElement;
+    const composedEvent = new Event(ev.type, {
+      bubbles: true,
+      composed: true
+    });
+
+    this.on = target?.checked;
+    this.dispatchEvent(composedEvent);
+  }
 }

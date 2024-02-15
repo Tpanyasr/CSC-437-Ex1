@@ -41,7 +41,7 @@ export class ClothingItem extends LitElement {
 }
   a{
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
   }
   h1{
     font-size: 1.5rem;
@@ -49,7 +49,7 @@ export class ClothingItem extends LitElement {
   }
     .clothing-item {
       border: 1px solid #ccc;
-      background-color: rgb(250, 253, 255);
+      background-color: var(--card-color);
       padding: 10px;
       border-radius: 5px;
       box-shadow: 1px 1px #ccc;

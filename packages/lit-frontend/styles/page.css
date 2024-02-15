@@ -9,7 +9,12 @@ body {
   margin: 0;
   padding-left: 15px;
   padding-right: 10px;
+  background-color: var(--color-background-page);
+  font-family: "Montserrat", sans-serif;
+
 }
+
+
 /*IMAGES*/
 .main-img{
     max-height: 440px;
@@ -57,9 +62,6 @@ body {
     object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
 }
 
-body {
-    font-family: "Montserrat", sans-serif;
-}
 
 
 /*NAV BAR*/
@@ -78,10 +80,12 @@ nav {
     display: flex;
     width: 100%;
     justify-content: space-around;
+
   }
   
   .nav_link {
     text-decoration: none;
+
   }
   .logo {
     width: 100%;
