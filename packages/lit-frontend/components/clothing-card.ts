@@ -9,9 +9,11 @@ export class ClothingItem extends LitElement {
   @property({ type: String }) price: string = "";
   @property({ type: String }) category: string = "";
   @property({ type: String }) size: string = "";
+  @property({ type: String }) link: string = "";
 
   render() {
     return html`
+    <a href="/product/${this.link}">
       <article class="clothing-item">
         <header class="header-box">
           <h1>${this.name}</h1>
@@ -24,10 +26,27 @@ export class ClothingItem extends LitElement {
           <p>${this.size}</p>
         </section>
       </article>
+    </a>
     `;
   }
 
   static styles = css`
+  .header-box{
+    margin: 10px 5px 10px 5px;
+    height: 100%;
+    max-height: 72px;
+}
+.details{
+  line-height: .5;
+}
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  h1{
+    font-size: 1.5rem;
+    margin: 0;
+  }
     .clothing-item {
       border: 1px solid #ccc;
       background-color: rgb(250, 253, 255);

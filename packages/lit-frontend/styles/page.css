@@ -140,13 +140,6 @@ nav {
 }
 
 
-
-.header-box{
-    margin: 10px 5px 10px 5px;
-    height: 100%;
-    max-height: 72px;
-}
-
 .section-name{
     margin-top: var(--section-name-margin-top);
     margin-left: var(--section-name-margin-left);
