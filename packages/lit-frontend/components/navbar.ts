@@ -7,18 +7,18 @@ export class Navbar extends LitElement {
   render() {
     return html`
       <nav>
-        <a href="../app/index.html" class="logo-container">
-          <img src="../images/logo.png" alt="Logo" class="logo" />
+        <a href="/app/index.html" class="logo-container">
+          <img src="/images/logo.png" alt="Logo" class="logo" />
         </a>
         <div class="link_container">
-          <a href="../nav_pages/stores.html">Stores</a>
-          <a href="./index.html">About</a>
+          <a href="/nav_pages/stores.html">Stores</a>
+          <a href="/app/index.html">About</a>
           <drop-down>
-            <img src="../images/profilepic.png" alt="user" />
+            <img src="/images/profilepic.png" alt="user" />
             <ul slot="menu">
-              <li><a href="../nav_pages/profile.html">Profile</a></li>
+              <li><a href="/nav_pages/profile.html">Profile</a></li>
               <li>
-                <a href="../nav_pages/shoppingcart.html">Shopping Cart</a>
+                <a href="/nav_pages/shoppingcart.html">Shopping Cart</a>
               </li>
               <li><a href="">Wishlist</a></li>
               <li><dark-mode></dark-mode></li>

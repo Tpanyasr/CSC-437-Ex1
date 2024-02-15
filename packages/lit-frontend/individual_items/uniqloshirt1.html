@@ -2,26 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="../styles/individual.css" />
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/page.css" />
-    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/individual.css" />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <script type="module" src="/components/navbar.ts"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clothing Items</title>
   </head>
   <body>
-    <nav>
-      <a href="./index.html" class ="logo-container">
-        <img src="../images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
-      </a>
-      <div class="link_container">
-        <a class="nav_link" href="../index.html">Home</a>
-        <a class="nav_link" href="../stores.html">Stores</a>
-        <a class="nav_link" href="../profile.html">Profile</a>
-        <a class="nav_link" href="../shoppingcart.html">Shopping Cart</a>
-      </div>
-    </nav>
+    <app-navbar></app-navbar>
+
     
     <div class="container_items">
       <img
@@ -50,7 +42,7 @@
         </div>
         <a href="./hamshirt1.html" class="buy-link"></a>
         <section class="details">
-          <!-- <a href="../ham.html">
+          <!-- <a href="/ham.html">
             <h2>Brand: H&M</h2>
           </a> -->
           
@@ -75,7 +67,7 @@
       <h2 class = "section-name">Reviews</h2>
       <article class="review-item">
         <header class="review-header">
-          <a href="../profile.html">Thomas</a>
+          <a href="/profile.html">Thomas</a>
           <div class="star">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>

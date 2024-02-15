@@ -13,7 +13,7 @@ export class ClothingItem extends LitElement {
 
   render() {
     return html`
-    <a href="/product/${this.link}">
+    <a href="${this.link}">
       <article class="clothing-item">
         <header class="header-box">
           <h1>${this.name}</h1>
