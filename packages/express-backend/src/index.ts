@@ -1,6 +1,10 @@
 // src/index.ts
 import express, { Request, Response } from "express";
 import cors from "cors";
+import { connect } from "./mongoConnect";
+
+// and add this after all the app.use() statements
+connect("bobateadog"); // use your own db name here
 
 const app = express();
 const port = process.env.PORT || 3000;
