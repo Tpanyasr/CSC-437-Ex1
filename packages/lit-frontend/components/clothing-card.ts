@@ -4,25 +4,49 @@ import { property } from "lit/decorators.js";
 
 @customElement("clothing-card")
 export class ClothingItem extends LitElement {
-  @property({ type: String })
+  @property({ type: String }) name: string = "";
+  @property({ type: String }) brand: string = "";
+  @property({ type: String }) price: string = "";
+  @property({ type: String }) category: string = "";
+  @property({ type: String }) size: string = "";
+  @property({ type: String }) link: string = "";
+
   render() {
     return html`
+    <a href="${this.link}">
       <article class="clothing-item">
         <header class="header-box">
-          <h1><slot name="item-name"></slot></h1>
+          <h1>${this.name}</h1>
         </header>
-        <slot name="image" />
+        <slot name="image"></slot>
         <section class="details">
-          <h2><slot name="brand" /></h2>
-          <p><slot name="price" /></p>
-          <p><slot name="category" /></p>
-          <p><slot name="size" /></p>
+          <h2>${this.brand}</h2>
+          <p>${this.price}</p>
+          <p>${this.category}</p>
+          <p>${this.size}</p>
         </section>
       </article>
+    </a>
     `;
   }
 
   static styles = css`
+  .header-box{
+    margin: 10px 5px 10px 5px;
+    height: 100%;
+    max-height: 72px;
+}
+.details{
+  line-height: .5;
+}
+  a{
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  h1{
+    font-size: 1.5rem;
+    margin: 0;
+  }
     .clothing-item {
       border: 1px solid #ccc;
       background-color:  rgb(250, 253, 255);
