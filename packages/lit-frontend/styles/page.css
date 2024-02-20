@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
   /* Add more styles as needed */
+  
 }
 
 body {
@@ -11,6 +12,7 @@ body {
   padding-right: 10px;
   background-color: var(--color-background-page);
   font-family: "Montserrat", sans-serif;
+  color: var(--color-text); /* Add text color here */
 
 }
 

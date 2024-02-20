@@ -4,11 +4,16 @@ import "./drop-down"; // Importing drop-down component
 import { ToggleSwitchElement } from "./toggle.ts";
 @customElement("app-navbar")
 export class Navbar extends LitElement {
+  lightModeImageSrc = "/images/logo.png";
+  darkModeImageSrc = "/images/darkmodelogo.png";
+
+  // Variable to keep track of the current mode
+  darkModeEnabled = false;
   render() {
     return html`
       <nav>
         <a href="/app/index.html" class="logo-container">
-          <img src="/images/logo.png" alt="Logo" class="logo" />
+        <img class= "logo" src=${this.darkModeEnabled ? this.darkModeImageSrc : this.lightModeImageSrc} />
         </a>
         <div class="link_container">
           <a href="/nav_pages/stores.html">Stores</a>
@@ -80,8 +85,15 @@ export class Navbar extends LitElement {
 
     console.log("Toggling Dark mode", ev);
 
-    if (target?.on) body.classList.add("dark-mode");
+    // Toggle dark mode
+    this.darkModeEnabled = target?.on;
+
+    // Apply dark mode class to body
+    if (this.darkModeEnabled) body.classList.add("dark-mode");
     else body.classList.remove("dark-mode");
+
+    // Update image source
+    this.requestUpdate();
   }
 }
 
