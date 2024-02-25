@@ -1,8 +1,9 @@
-// src/profiles.ts
 import { Document } from "mongoose";
-import { Profile } from "./models/profile"
+import { Profile } from "./models/profile";
 import ProfileModel from "./models/mongo/profile";
 
+
+//THIS IS A MONGOOSE MODEL THAT IS DEFINED FOR INTERACT
 function index(): Promise<Profile[]> {
   return ProfileModel.find();
 }
@@ -15,6 +16,8 @@ function get(userid: String): Promise<Profile> {
     });
 }
 
+
+   
 function create(profile: Profile): Promise<Profile> {
   const p = new ProfileModel(profile);
   return p.save();

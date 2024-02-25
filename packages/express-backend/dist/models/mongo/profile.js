@@ -7,7 +7,7 @@ const profileSchema = new mongoose_1.Schema({
     name: { type: String, required: true, trim: true },
     nickname: { type: String, trim: true },
     city: { type: String, trim: true },
-    airports: [String],
+    airports: [String]
 }, { collection: "user_profiles" });
 const ProfileModel = (0, mongoose_1.model)("Profile", profileSchema);
 exports.default = ProfileModel;

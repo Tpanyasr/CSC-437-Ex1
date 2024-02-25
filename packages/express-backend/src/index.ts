@@ -1,12 +1,17 @@
 // src/index.ts
+import profiles from "./profiles";
+import { Profile } from "./models/profile";
 import express, { Request, Response } from "express";
 import cors from "cors";
+
+// in src/index.ts
+// add this import near the top
 import { connect } from "./mongoConnect";
-import profiles from "./profiles";
-import { Profile } from "./models/Profile";
 
 // and add this after all the app.use() statements
-connect("bobateadog"); // use your own db name here
+connect("Bobateadog"); // use your own db name here
+
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,7 +27,6 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-// in src/index.ts, with the other app.get()
 app.get("/api/profiles/:userid", (req: Request, res: Response) => {
   const { userid } = req.params;
 
@@ -32,7 +36,6 @@ app.get("/api/profiles/:userid", (req: Request, res: Response) => {
     .catch((err) => res.status(404).end());
 });
 
-// in src/index.ts, after the previous app.get()
 app.post("/api/profiles", (req: Request, res: Response) => {
   const newProfile = req.body;
 

@@ -4,12 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // src/index.ts
+const profiles_1 = __importDefault(require("./profiles"));
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+// in src/index.ts
+// add this import near the top
 const mongoConnect_1 = require("./mongoConnect");
-const profiles_1 = __importDefault(require("./profiles"));
 // and add this after all the app.use() statements
-(0, mongoConnect_1.connect)("bobateadog"); // use your own db name here
+(0, mongoConnect_1.connect)("Bobateadog"); // use your own db name here
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 app.use((0, cors_1.default)());
@@ -20,7 +22,6 @@ app.get("/hello", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-// in src/index.ts, with the other app.get()
 app.get("/api/profiles/:userid", (req, res) => {
     const { userid } = req.params;
     profiles_1.default
@@ -28,7 +29,6 @@ app.get("/api/profiles/:userid", (req, res) => {
         .then((profile) => res.json(profile))
         .catch((err) => res.status(404).end());
 });
-// in src/index.ts, after the previous app.get()
 app.post("/api/profiles", (req, res) => {
     const newProfile = req.body;
     profiles_1.default

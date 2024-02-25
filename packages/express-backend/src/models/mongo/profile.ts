@@ -1,6 +1,6 @@
 // src/models/mongo/profile.ts
 import { Schema, Model, Document, model } from "mongoose";
-import { Profile } from "../Profile";
+import { Profile } from "../profile";
 
 const profileSchema = new Schema<Profile>(
   {
@@ -8,7 +8,7 @@ const profileSchema = new Schema<Profile>(
     name: { type: String, required: true, trim: true },
     nickname: { type: String, trim: true },
     city: { type: String, trim: true },
-    airports: [String],
+    airports: [String]
   },
   { collection: "user_profiles" }
 );
