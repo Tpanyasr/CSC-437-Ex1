@@ -1,99 +1,109 @@
-// src/user-profiles.ts
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { Profile } from "express-backend/src/models/profile";
 import { serverPath } from "./rest";
 
 @customElement("user-profile")
 export class UserProfileElement extends LitElement {
-  @property()
-  path: string = "";
+    @property()
+    path: string = "";
 
-  @state()
-  profile?: Profile;
+    @state()
+    profile?: Profile;
 
-  render() {
-    // fill this in later
-    return html`...`;
-  }
+    render() {
+       
 
-  static styles = css`
-    .my-class {
-      background-color: #f4f4f4;
+        return html`
+        <h1>User Profile</h1>
+        
+        `;
     }
-  `;
 
-  // in class UserProfileElement
+    static styles = [
 
-  _fetchData(path: string) {
-    fetch(serverPath(path))
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
+        css`
+        
+    `];
+
+    _fetchData(path: string) {
+        fetch(serverPath(path))
+        .then((response) => {
+            if (response.status === 200) {
+            return response.json();
+            }
+            return null;
+        })
+        .then((json: unknown) => {
+            if (json) this.profile = json as Profile;
+        });
+    }
+
+    connectedCallback() {
+        if (this.path) {
+        this._fetchData(this.path);
         }
-        return null;
-      })
-      .then((json: unknown) => {
-        if (json) this.profile = json as Profile;
-      });
-  }
-
-  connectedCallback() {
-    if (this.path) {
-      this._fetchData(this.path);
+        super.connectedCallback();
     }
-    super.connectedCallback();
-  }
 
-  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (name === "path" && oldValue !== newValue && oldValue) {
-      this._fetchData(newValue);
+    attributeChangedCallback(
+        name: string,
+        oldValue: string,
+        newValue: string
+    ) {
+        if (name === "path" && oldValue !== newValue && oldValue) {
+            this._fetchData(newValue);
+        }
+        super.attributeChangedCallback(name, oldValue, newValue);
     }
-    super.attributeChangedCallback(name, oldValue, newValue);
-  }
 }
 
 @customElement("user-profile-edit")
 export class UserProfileEditElement extends UserProfileElement {
-  render() {
-    return html`<form @submit=${this._handleSubmit}>
-      <!-- fill in form here -->
-      <button type="submit">Submit</button>
-    </form> `;
-  }
+    render() {
 
-  static styles = [...UserProfileElement.styles, css`...`];
+        console.log("Rendering form", this.profile);
 
-  _handleSubmit(ev: Event) {
-    ev.preventDefault(); // prevent browser from submitting form data itself
+        return html``
+        
+    }
 
-    const target = ev.target as HTMLFormElement;
-    const formdata = new FormData(target);
-    const entries = Array.from(formdata.entries())
-      .map(([k, v]) => (v === "" ? [k] : [k, v]))
-      .map(([k, v]) =>
-        k === "airports"
-          ? [k, (v as string).split(",").map((s) => s.trim())]
-          : [k, v]
-      );
-    const json = Object.fromEntries(entries);
+    static styles = [...UserProfileElement.styles, 
+        css`
+        `];
 
-    this._putData(json);
-  }
+    _handleSubmit(ev: Event) {
+        ev.preventDefault(); // prevent browser from submitting form data itself
 
-  _putData(json: Profile) {
+        const target = ev.target as HTMLFormElement;
+        const formdata = new FormData(target);
+        const entries = Array.from(formdata.entries())
+            .map(([k, v]) => (v === "" ? [k] : [k, v]))
+            .map(([k, v]) =>
+            k === "instruments"
+                ? [k, (v as string).split(",").map((s) => s.trim())]
+                : [k, v]
+            );
+        const json = Object.fromEntries(entries);
+
+        this._putData(json);
+    }
+
+    _putData(json: Profile) {
     fetch(serverPath(this.path), {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(json),
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(json)
     })
-      .then((response) => {
+        .then((response) => {
         if (response.status === 200) return response.json();
         else return null;
-      })
-      .then((json: unknown) => {
+        })
+        .then((json: unknown) => {
         if (json) this.profile = json as Profile;
-      })
-      .catch((err) => console.log("Failed to PUT form data", err));
-  }
+        })
+        .catch((err) =>
+        console.log("Failed to PUT form data", err)
+        );
+    }
 }

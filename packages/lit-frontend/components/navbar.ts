@@ -12,7 +12,7 @@ export class Navbar extends LitElement {
         </a>
         <div class="link_container">
           <a href="/nav_pages/stores.html">Stores</a>
-          <a href="/app/index.html">About</a>
+          <a href="/nav_pages/test.html">Test Profile Page</a>
           <drop-down>
             <img src="/images/profilepic.png" alt="user" />
             <ul slot="menu">
