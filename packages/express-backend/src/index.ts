@@ -44,3 +44,14 @@ app.post("/api/profiles", (req: Request, res: Response) => {
     .then((profile: Profile) => res.status(201).send(profile))
     .catch((err) => res.status(500).send(err));
 });
+
+// in src/index.ts, after our previous routes
+app.put("/api/profiles/:userid", (req: Request, res: Response) => {
+  const { userid } = req.params;
+  const newProfile = req.body;
+
+  profiles
+    .update(userid, newProfile)
+    .then((profile: Profile) => res.json(profile))
+    .catch((err) => res.status(404).end());
+});
