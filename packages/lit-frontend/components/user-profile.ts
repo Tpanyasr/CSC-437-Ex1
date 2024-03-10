@@ -12,14 +12,60 @@ export class UserProfileElement extends LitElement {
     profile?: Profile;
 
     render() {
-       
-
+        const { name, contactInfo, sizes, reviews } = (this.profile ||
+          {}) as Profile;
+    
         return html`
-        <h1>User Profile</h1>
-        
+          <article>
+            <h2>Your Profile</h2>
+            <div class="pfp_container">
+              <div class="circle" style="background-color: #b91111"></div>
+            </div>
+            <section class="user-info">
+              <form>
+                <label for="name">Name:</label><br />
+                <input type="text" id="name" name="name" value="${name}" /><br />
+                <label for="contact">Contact Info:</label><br />
+                <input
+                  type="text"
+                  id="contact"
+                  name="contact"
+                  value="${contactInfo}"
+                /><br />
+              </form>
+            </section>
+            <section class="user-size">
+              <h2>Your Size</h2>
+              <form>
+                <label for="shirt-size">Shirt Size:</label><br />
+                <input
+                  type="text"
+                  id="shirt-size"
+                  name="shirt-size"
+                  value="${sizes.shirt}"
+                /><br />
+                <label for="pants-size">Pants Size:</label><br />
+                <input
+                  type="text"
+                  id="pants-size"
+                  name="pants-size"
+                  value="${sizes.pants}"
+                /><br />
+              </form>
+            </section>
+            <section class="user-reviews">
+              <h2>Your Reviews</h2>
+    
+            ${reviews.map(
+                (review) => html`
+    
+                        <p>${review.reviewText}</p>
+                        `
+            )}
+            </section>
+          </article>
         `;
-    }
-
+      }
     static styles = [
 
         css`
