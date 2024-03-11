@@ -9,5 +9,9 @@ export default [
     {
         path: "/app",
         component: "landing-page"
+    },
+    {
+        path: "/",
+        redirect: "/app"
     }
 ];

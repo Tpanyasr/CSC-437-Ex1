@@ -3,7 +3,6 @@ import { customElement } from "lit/decorators.js";
 import resetCSS from "/src/styles/reset.css?inline";
 import pageCSS from "/src/styles/page.css?inline";
 import "../components/user-profile";
-import "../components/musician-container";
 
 @customElement("profile-page")
 export class ProfilePageElement extends LitElement {
@@ -20,3 +19,7 @@ export class ProfilePageElement extends LitElement {
         unsafeCSS(pageCSS),
     ];
 }
+
+
+
+

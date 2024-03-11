@@ -5,20 +5,20 @@ import pageCSS from "/src/styles/page.css?inline";
 
 import routes from "../routes";
 
-import "../components/app-header";
+import "../components/navbar"; //exported as name app-navbar
 import "../components/vaadin-router";
 
 @customElement("sheetshare-app")
 export class SheetShareAppElement extends LitElement {
     render() {
         return html`
-        <app-header></app-header>
+        <app-navbar> </app-navbar>  
         <vaadin-router .routes=${routes}> </vaadin-router>
     `;
     }
 
     static styles = [
         unsafeCSS(resetCSS),
-        unsafeCSS(pageCSS)
+        unsafeCSS(pageCSS),
     ];
 }
