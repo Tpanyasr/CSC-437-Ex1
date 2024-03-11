@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/styles/profile.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <script type="module" src="/components/navbar.ts"></script>
+    <script type="module" src="/components/toggle.ts"></script>
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+
+    <div class="pfp_container">
+      <div class="circle" style="background-color: #f4f4f4"></div>
+    </div>
+    <div class="user-profile">
+      <section class="user-info">
+        <h2>Your Profile</h2>
+        <form>
+          <label for="name">Name:</label><br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="Thomas Panyasrivinit"
+          /><br />
+          <label for="contact">Contact Info:</label><br />
+          <input
+            type="text"
+            value="thomaspanyasrivinit@gmail.com"
+            id="contact"
+            name="contact"
+          /><br />
+          <!-- Add more information fields as needed -->
+        </form>
+      </section>
+      <section class="user-size">
+        <h2>Your Size</h2>
+        <form>
+          <label for="size">Shirt Size:</label><br />
+          <input type="text" id="size" value="XL" name="size" /><br />
+          <label for="size">Pants Size:</label><br />
+          <input type="text" id="size" value="33 X 32" name="size" /><br />
+          <!-- Add more size information as needed -->
+        </form>
+      </section>
+      <section class="user-reviews">
+        <h2>Your Reviews</h2>
+        <div>
+          <h3>Review 1:</h3>
+          <p id="review1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <h3>Review 2:</h3>
+          <p id="review2">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <!-- Add more reviews as needed -->
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
