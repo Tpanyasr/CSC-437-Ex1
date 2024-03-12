@@ -63,7 +63,7 @@ export class AuthRequiredElement extends LitElement {
         </form>
         <form
           @submit=${this._handleRegister}
-          @change=${(this.registerStatus = 0)}>
+        @change=${() => (this.registerStatus = 0)}>
           <h2>New User</h2>
           <label>
             <span>Username</span>

@@ -10,15 +10,14 @@ import "../components/vaadin-router";
 
 @customElement("closet-app")
 export class ClosetAppElement extends LitElement {
-    render() {
-        return html`
-        <app-navbar> </app-navbar>  
+  render() {
+    return html`
+      <auth-required>
+        <app-navbar> </app-navbar>
         <vaadin-router .routes=${routes}> </vaadin-router>
+      </auth-required>
     `;
-    }
+  }
 
-    static styles = [
-        unsafeCSS(resetCSS),
-        unsafeCSS(pageCSS),
-    ];
+  static styles = [unsafeCSS(resetCSS), unsafeCSS(pageCSS)];
 }
