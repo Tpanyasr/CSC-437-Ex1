@@ -8,8 +8,8 @@ import routes from "../routes";
 import "../components/navbar"; //exported as name app-navbar
 import "../components/vaadin-router";
 
-@customElement("sheetshare-app")
-export class SheetShareAppElement extends LitElement {
+@customElement("shopping-cart")
+export class CartAppElement extends LitElement {
     render() {
         return html`
         <app-navbar> </app-navbar>  

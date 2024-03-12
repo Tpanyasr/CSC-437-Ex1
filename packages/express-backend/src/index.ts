@@ -1,6 +1,6 @@
 // src/index.ts
 import profiles from "./profiles";
-import { Profile } from "./models/profile";
+import { Profile } from "ts-models";
 import express, { Request, Response } from "express";
 import cors from "cors";
 

@@ -8,9 +8,9 @@ import "../components/user-profile";
 export class ProfilePageElement extends LitElement {
     render() {
         return html`
-        <main>
-            <user-profile path="/profiles/001"></user-profile>
-        </main>
+        
+        <user-profile path="/profiles/bobateadog"></user-profile>
+        
     `;
     }
 

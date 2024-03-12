@@ -1,6 +1,6 @@
 import { Document } from "mongoose";
-import { Profile } from "./models/profile";
-import ProfileModel from "./models/mongo/profile";
+import { Profile } from "ts-models";
+import ProfileModel from "./mongo/profile";
 
 
 //THIS IS A MONGOOSE MODEL THAT IS DEFINED FOR INTERACT
