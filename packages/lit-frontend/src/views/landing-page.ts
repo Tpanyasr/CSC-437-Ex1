@@ -16,6 +16,7 @@ export class LandingPage extends LitElement {
   render() {
     return html`
       <main>
+        You made it to the landing page!
         <search-bar></search-bar>
         <clothing-grid></clothing-grid>
       </main>

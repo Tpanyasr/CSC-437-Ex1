@@ -1,36 +1,29 @@
-import { Document } from "mongoose";
+import express, { Request, Response } from "express";
 import { Item } from "ts-models";
-import ItemModel from "../mongo/item";
+import item from "../item";
 
-function index(): Promise<Item[]> {
-  return ItemModel.find();
-}
+const router = express.Router();
 
-function get(userid: String): Promise<Item> {
-  return ItemModel.find({ userid })
-    .then((list) => list[0])
-    .catch((err) => {
-      throw `${userid} Not Found`;
-    });
-}
+router.post("/", (req: Request, res: Response) => {
+  const newItem = req.body;
 
-function create(Item: Item): Promise<Item> {
-  const p = new ItemModel(Item);
-  return p.save();
-}
+  item
+    .create(newItem)
+    .then((item: Item) => res.status(201).send(item))
+    .catch((err) => res.status(500).send(err));
+});
 
-function update(
-  userid: String,
-  Item: Item
-): Promise<Item> {
-  return new Promise((resolve, reject) => {
-    ItemModel.findOneAndUpdate({ userid }, Item, {
-      new: true
-    }).then((Item) => {
-      if (Item) resolve(Item);
-      else reject("Failed to update Item");
-    });
-  });
-}
+router.get("/item/:itemId", (req: Request, res: Response) => {
+  const { itemName } = req.params;
 
-export default { index, get, create, update };
+  item
+    .get(itemName)
+    .then((item: Item | undefined) => {
+      if (!item) throw "Not found";
+      else res.json(item);
+    })
+    .catch((err) => res.status(404).end());
+});
+
+
+export default router;

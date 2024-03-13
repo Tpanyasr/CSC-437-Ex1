@@ -13,10 +13,10 @@ import "../components/auth-required"; //exported as name auth-required
 export class ClosetAppElement extends LitElement {
   render() {
     return html`
-      <!-- <auth-required> -->
+      <auth-required>
         <app-navbar> </app-navbar>
         <vaadin-router .routes=${routes}> </vaadin-router>
-      <!-- </auth-required> -->
+      </auth-required>
     `;
   }
 

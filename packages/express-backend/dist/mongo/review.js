@@ -10,4 +10,5 @@ const reviewSchema = new mongoose_1.Schema({
     itemId: { type: String, required: true, trim: true },
     rating: { type: Number, required: true }
 }, { _id: false });
-exports.default = reviewSchema;
+const ReviewModel = (0, mongoose_1.model)("Review", reviewSchema);
+exports.default = ReviewModel;
