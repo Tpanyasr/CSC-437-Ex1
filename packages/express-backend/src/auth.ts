@@ -17,7 +17,7 @@ function generateAccessToken(username: string) {
   });
 }
 
-export function registerUser(req: Request, res: Response) {
+export function registerUser(req: any, res: any ) {
   const { username, pwd } = req.body; // from form
 
   if (!username || !pwd) {
@@ -53,6 +53,7 @@ export function authenticateUser(req: any, res: any, next: any) {
   const token = authHeader && authHeader.split(" ")[1];
 
   if (!token) {
+    console.log("No token");
     res.status(401).end();
   } else {
     jwt.verify(

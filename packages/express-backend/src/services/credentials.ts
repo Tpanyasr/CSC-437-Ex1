@@ -51,6 +51,7 @@ export function create(username: string, password: string) {
       .then((found: Credential[]) => {
         if (found.length) reject("username exists");
       })
+      
       .then(() =>
         bcrypt
           .genSalt(10)
@@ -68,4 +69,4 @@ export function create(username: string, password: string) {
   });
 }
 
-export default { checkExists, create, verify };
+export default { checkExists, create, verify }; 

@@ -63,15 +63,18 @@ export class AuthRequiredElement extends LitElement {
         </form>
         <form
           @submit=${this._handleRegister}
-        @change=${() => (this.registerStatus = 0)}>
-          <h2>New User</h2>
+
+          @change=${() => (this.registerStatus = 0)}>          <h2>New User</h2>
           <label>
-            <span>Username</span>
-            <input name="username" />
+            <span>Name</span>
+            <input name="name" required/>
           </label>
           <label>
+            <span>Username</span>
+            <input name="username" required/>
+          
             <span>Password</span>
-            <input type="password" name="pwd" />
+            <input type="password" name="pwd" required/>
           </label>
           <button type="submit">Register</button>
           <p>
@@ -168,7 +171,34 @@ export class AuthRequiredElement extends LitElement {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const data = new FormData(form);
-    const request = new FormDataRequest(data);
+    const username = data.get('username');
+    const pwd = data.get('pwd');
+    const name = data.get('name');
+    const date_joined = new Date();
+    const formattedDate = date_joined.toISOString();
+    const selectedCheckboxes = form.querySelectorAll<HTMLInputElement>('input[name="instruments"]:checked');
+    
+    // Extract the values of the selected checkboxes
+    const selectedInstruments = Array.from(selectedCheckboxes).map((checkbox) => {
+        return checkbox.value;
+    });
+    // Serialize the array of selected instruments
+    const serializedInstruments = JSON.stringify(selectedInstruments);
+    
+    // Append the serialized instruments to the FormData object
+    const credData = new FormData();
+    const userData = new FormData();
+    if (username !== null && pwd !== null) {
+      credData.append('username', username);
+      credData.append('pwd', pwd);
+    }
+    if (username !== null && name !== null) {
+      userData.append('userid', username);
+      userData.append('name', name);
+    }
+      userData.append('instruments', serializedInstruments);
+    const request = new FormDataRequest(credData);
+    const profile = new FormDataRequest(userData);
 
     request
       .base()
@@ -187,6 +217,37 @@ export class AuthRequiredElement extends LitElement {
       .then((json) => {
         console.log("Registration:", json);
         console.log("Rendering auth-required", this.user);
+        if (json) {
+          console.log("Authentication:", json.token);
+          const authenticatedUser =
+            AuthenticatedUser.authenticate(json.token, () =>
+              this._signOut()
+            );
+          this.user = authenticatedUser;
+          this._toggleDialog(false);
+          this._dispatchUserLoggedIn(authenticatedUser);
+          this.requestUpdate();
+        }
+        return profile.base().post("/api/profiles");
+      })
+      .then((secondResponse) => {
+        // Handle response from the second request
+        if (secondResponse.ok) {
+          console.log("Second request succeeded");
+          return secondResponse.json();
+        } else {
+          console.log("Second request failed");
+          // Handle failure
+          throw new Error("Second request failed");
+        }
+      })
+      .then((secondJson) => {
+        // Handle the response data from the second request
+        console.log("Second request data:", secondJson);
+      })
+      .catch((error) => {
+        // Handle any errors that occur in any of the promises
+        console.error("Error:", error);
       });
   }
 
@@ -211,3 +272,4 @@ export class AuthRequiredElement extends LitElement {
     document.location.reload();
   }
 }
+

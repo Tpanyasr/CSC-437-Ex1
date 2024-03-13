@@ -4,7 +4,10 @@ export interface Item {
     name: string;
     price: number;
     description: string;
-    categories: [string];
-    quantity: number;
-    reviews: [Review];
+    categories: string[];
+    store: String;
+    size: String;
+    // size: "S" | "M" | "L" | "XL" | "XXL";
+    image: string;
+
 }

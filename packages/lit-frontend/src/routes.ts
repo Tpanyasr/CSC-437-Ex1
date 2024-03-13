@@ -7,11 +7,20 @@ export default [
         component: "profile-page"
     },
     {
+        path: "/app/shopping-cart",
+        component: "shopping-cart"
+    },
+    {
+        path: "/app",
+        component: "landing-page"
+    },
+    {
         path: "/app",
         component: "landing-page"
     },
     {
         path: "/",
         redirect: "/app"
-    }
+    }, 
+    
 ];

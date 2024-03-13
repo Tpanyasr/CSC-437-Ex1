@@ -7,6 +7,6 @@ export interface Profile {
         shirt: string;
         pants: string;
     };
-    reviews: [Review];
+    cart: string[];
   }
   
