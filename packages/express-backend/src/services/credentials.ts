@@ -40,7 +40,6 @@ export function checkExists(username: string) {
       .then((found) => resolve(found && found.length > 0));
   });
 }
-
 export function create(username: string, password: string) {
   return new Promise<Credential>((resolve, reject) => {
     if (!username || !password) {
@@ -49,24 +48,29 @@ export function create(username: string, password: string) {
     credentialModel
       .find({ username })
       .then((found: Credential[]) => {
-        if (found.length) reject("username exists");
+        if (found.length) {
+          console.log("Username exists");
+          reject("username exists");
+        } else {
+          bcrypt
+            .genSalt(10)
+            .then((salt: string) => bcrypt.hash(password, salt))
+            .then((hashedPassword: string) => {
+              const creds = new credentialModel({
+                username,
+                hashedPassword
+              });
+              creds.save().then((created: Credential) => {
+                if (created) resolve(created);
+              });
+            });
+        }
       })
-      
-      .then(() =>
-        bcrypt
-          .genSalt(10)
-          .then((salt: string) => bcrypt.hash(password, salt))
-          .then((hashedPassword: string) => {
-            const creds = new credentialModel({
-              username,
-              hashedPassword
-            });
-            creds.save().then((created: Credential) => {
-              if (created) resolve(created);
-            });
-          })
-      );
+      .catch((error) => {
+        reject(error);// Handle any errors that occur during the promise chain
+      });
   });
+
 }
 
 export default { checkExists, create, verify }; 

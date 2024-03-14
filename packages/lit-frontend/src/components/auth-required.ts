@@ -174,8 +174,8 @@ export class AuthRequiredElement extends LitElement {
     const username = data.get('username');
     const pwd = data.get('pwd');
     const name = data.get('name');
-    const date_joined = new Date();
-    const formattedDate = date_joined.toISOString();
+    // const date_joined = new Date();
+    // const formattedDate = date_joined.toISOString();
     const selectedCheckboxes = form.querySelectorAll<HTMLInputElement>('input[name="instruments"]:checked');
     
     // Extract the values of the selected checkboxes

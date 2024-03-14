@@ -1,10 +1,12 @@
-import { LitElement, html, css, unsafeCSS } from "lit";
+import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 // import { property } from "lit/decorators.js";
 import resetCSS from "/src/styles/reset.css?inline";
-import pageCSS from "/src/styles/page.css?inline";
 import indexCSS from "/src/styles/index.css?inline";
+import homePageCSS from "/src/styles/homepage.css?inline";
 import { Item } from "ts-models";
+import "../components/searchbar";
+import "../components/clothing-card";
 @customElement("landing-page")
 export class LandingPage extends LitElement {
   @property()
@@ -16,17 +18,28 @@ export class LandingPage extends LitElement {
   render() {
     return html`
       <main>
-        You made it to the landing page!
         <search-bar></search-bar>
-        <clothing-grid></clothing-grid>
+        <div class="container_items">
+          ${this.allItem.map(
+            (item) =>
+              html`<clothing-card
+                name=${item.name}
+                brand=${item.store}
+                description=${item.description}
+                price=${item.price}
+              >  <img slot="image"          
+  src=${item.image}
+  alt="Clothing Image" class="card-img" /></clothing-card>`
+          )}
+        </div>
       </main>
     `;
   }
 
   static styles = [
     unsafeCSS(resetCSS),
-    unsafeCSS(pageCSS),
     unsafeCSS(indexCSS),
+    unsafeCSS(homePageCSS)
   ];
 
   

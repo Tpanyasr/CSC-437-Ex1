@@ -47,22 +47,29 @@ function create(username, password) {
         credential_1.default
             .find({ username })
             .then((found) => {
-            if (found.length)
+            if (found.length) {
+                console.log("Username exists");
                 reject("username exists");
+            }
+            else {
+                bcryptjs_1.default
+                    .genSalt(10)
+                    .then((salt) => bcryptjs_1.default.hash(password, salt))
+                    .then((hashedPassword) => {
+                    const creds = new credential_1.default({
+                        username,
+                        hashedPassword
+                    });
+                    creds.save().then((created) => {
+                        if (created)
+                            resolve(created);
+                    });
+                });
+            }
         })
-            .then(() => bcryptjs_1.default
-            .genSalt(10)
-            .then((salt) => bcryptjs_1.default.hash(password, salt))
-            .then((hashedPassword) => {
-            const creds = new credential_1.default({
-                username,
-                hashedPassword
-            });
-            creds.save().then((created) => {
-                if (created)
-                    resolve(created);
-            });
-        }));
+            .catch((error) => {
+            reject(error); // Handle any errors that occur during the promise chain
+        });
     });
 }
 exports.create = create;

@@ -43,13 +43,14 @@
   }
 
   /* ITEMS */
+
   .container_items{
-    font-family: Arial, sans-serif;
     margin: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+
 }
 .clothing-item {
     width: 23%;
@@ -57,6 +58,8 @@
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
+
 
 }
 img {

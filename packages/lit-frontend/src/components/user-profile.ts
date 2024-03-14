@@ -1,4 +1,4 @@
-import { css, html, LitElement, unsafeCSS } from "lit";
+import { css, html, LitElement} from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { Profile, Review } from "ts-models";
 import { serverPath } from "./rest";

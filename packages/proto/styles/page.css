@@ -112,7 +112,6 @@ nav {
 /* FOR CARDS */
 /*ONLY FOR CLOTHING*/
 .container_items{
-    font-family: Arial, sans-serif;
     margin: 20px;
     display: flex;
     flex-direction: row;

@@ -5,7 +5,7 @@ import { property } from "lit/decorators.js";
 @customElement("clothing-card")
 export class ClothingItem extends LitElement {
   @property({ type: String }) name: string = "";
-  @property({ type: String }) brand: string = "";
+  @property({ type: String }) store: string = "";
   @property({ type: String }) price: string = "";
   @property({ type: String }) category: string = "";
   @property({ type: String }) size: string = "";
@@ -13,14 +13,14 @@ export class ClothingItem extends LitElement {
 
   render() {
     return html`
-    <a href="${this.link}">
       <article class="clothing-item">
+    <a href="${this.link}">
         <header class="header-box">
           <h1>${this.name}</h1>
         </header>
         <slot name="image"></slot>
         <section class="details">
-          <h2>${this.brand}</h2>
+          <h2>${this.store}</h2>
           <p>${this.price}</p>
           <p>${this.category}</p>
           <p>${this.size}</p>

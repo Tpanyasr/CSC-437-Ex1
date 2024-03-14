@@ -1,9 +1,25 @@
-import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { LitElement, html, css, unsafeCSS} from "lit";
+import { customElement, state, property } from "lit/decorators.js";
 import "./drop-down.ts"; // Importing drop-down component
+import { Profile } from "ts-models";
+import { consume } from "@lit/context";
 import { ToggleSwitchElement } from "./toggle.ts";
+import { authContext } from "./auth-required";
+import { APIUser } from "../rest";
+
+import resetCSS from "/src/styles/reset.css?inline";
+import indexCSS from "/src/styles/index.css?inline";
+import pageCSS from "/src/styles/page.css?inline";
+
+
 @customElement("app-navbar")
 export class Navbar extends LitElement {
+  @state()
+  profile?: Profile;
+
+  @consume({ context: authContext, subscribe: true })
+  @property({ attribute: false })
+  user = new APIUser();
   render() {
     return html`
       <nav>
@@ -25,6 +41,7 @@ export class Navbar extends LitElement {
                 <toggle-switch @change=${this._toggleDarkMode}>Dark Mode
                 </toggle-switch>
               </li>
+              <li><a href="#" @click=${this._signOut}>Logout</a></li>
             </ul>
           </drop-down>
         </div>
@@ -32,7 +49,11 @@ export class Navbar extends LitElement {
     `;
   }
 
-  static styles = css`
+  static styles = [ 
+    unsafeCSS(resetCSS),
+    unsafeCSS(indexCSS),
+    unsafeCSS(pageCSS),
+    css`
     a {
       text-decoration: none;
       color: var(--color-text);
@@ -72,7 +93,7 @@ export class Navbar extends LitElement {
       justify-content: center;
       width: 25%;
     }
-  `;
+  `];
 
   _toggleDarkMode(ev: InputEvent) {
     const target = ev.target as ToggleSwitchElement;
@@ -83,5 +104,9 @@ export class Navbar extends LitElement {
     if (target?.on) body.classList.add("dark-mode");
     else body.classList.remove("dark-mode");
   }
+  _signOut() {
+    console.log("Signout");
+    this.user.signOut();
+}
 }
 

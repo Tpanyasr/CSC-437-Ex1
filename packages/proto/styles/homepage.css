@@ -44,12 +44,12 @@
 
   /* ITEMS */
   .container_items{
-    font-family: Arial, sans-serif;
     margin: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    height: auto;
 }
 .clothing-item {
     width: 23%;
