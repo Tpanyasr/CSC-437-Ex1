@@ -1,6 +1,6 @@
 // import { Review } from './review';
 export interface Item {
-    itemId: number;
+    itemId: string;
     name: string;
     price: number;
     description: string;

@@ -14,8 +14,8 @@ function get(itemId: String): Promise<Item> {
     });
 }
 
-function create(profile: Item): Promise<Item> {
-  const p = new ItemModel(profile);
+function create(item: Item): Promise<Item> {
+  const p = new ItemModel(item);
   return p.save();
 }
 

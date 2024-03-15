@@ -14,8 +14,8 @@ function get(itemId) {
         throw `${itemId} Not Found`;
     });
 }
-function create(profile) {
-    const p = new item_1.default(profile);
+function create(item) {
+    const p = new item_1.default(item);
     return p.save();
 }
 exports.default = { index, get, create };

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 // Define the Mongoose schema for the item
 const itemSchema = new mongoose_1.Schema({
-    itemId: { type: Number, required: true },
+    itemId: { type: String, required: true },
     name: { type: String, required: true, trim: true },
     price: { type: Number, required: true },
     description: { type: String, required: true, trim: true },

@@ -21,39 +21,44 @@ export class ToggleSwitchElement extends LitElement {
     }
     label {
       display: flex;
-      justify-content: flex-start;
+      width: 100%;
+      justify-content: space-between;
       align-items: center;
+      gap: 0.5rem;
+      line-height: 2em;
+      cursor: pointer;
     }
     .slider {
       display: inline-block;
-      border: 1px solid var(--color-slider-checked);
+      border: 1px solid var(--color-box-background);
       border-radius: 0.75em;
-      background-color: var(--color-slider-background);
-      margin-left: 10px;
+      background-color: var(--color-background-page);
       height: 1.5em;
-      width: 2.75em;
+      width: 3.25em;
       position: relative;
       transition: background-color
-      var(--time-transition-control);
+        var(--time-transition-control);
     }
     .slider:has(input:checked) {
-      background-color: var(--color-slider-checked);
+      background-color: var(--color-text-heading);
     }
     input {
       appearance: none;
-      background-color: var(--color-slider-forground);
+      cursor: pointer;
+      background-color: var(--color-box-text);
       border-radius: 50%;
-      width: 1.5em;
-      height: 1.5em;
-      vertical-align: center;
+      width: 1.25em;
+      height: 1.25em;
+      font-size: inherit;
       position: absolute;
       left: 0;
-      transition: left var(--time-slider-transition);
+      transition: left var(--time-transition-control);
     }
     input:checked {
       left: 1.5em;
     }
   `;
+
   _handleChange(ev: Event) {
     const target = ev.target as HTMLInputElement;
     const composedEvent = new Event(ev.type, {

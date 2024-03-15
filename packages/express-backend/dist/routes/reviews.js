@@ -3,31 +3,48 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const review_1 = __importDefault(require("../mongo/review"));
-function index() {
-    return review_1.default.find();
-}
-function get(userid) {
-    return review_1.default.find({ userid })
-        .then((list) => list[0])
-        .catch((err) => {
-        throw `${userid} Not Found`;
-    });
-}
-function create(Review) {
-    const p = new review_1.default(Review);
-    return p.save();
-}
-function update(userid, Review) {
-    return new Promise((resolve, reject) => {
-        review_1.default.findOneAndUpdate({ userid }, Review, {
-            new: true
-        }).then((Review) => {
-            if (Review)
-                resolve(Review);
-            else
-                reject("Failed to update Review");
-        });
-    });
-}
-exports.default = { index, get, create, update };
+const express_1 = __importDefault(require("express"));
+const review_1 = __importDefault(require("../review"));
+const router = express_1.default.Router();
+router.post("/", (req, res) => {
+    const newReview = req.body;
+    console.log("Creating Review", newReview);
+    review_1.default
+        .create(newReview)
+        .then((review) => res.status(201).send(review))
+        .catch((err) => res.status(500).send(err));
+});
+router.get("/:itemId", (req, res) => {
+    const { itemId } = req.params;
+    console.log("Getting Review", itemId);
+    review_1.default
+        .get(itemId)
+        .then((review) => {
+        if (!review)
+            throw "Not found";
+        else
+            res.json(review);
+    })
+        .catch((err) => res.status(404).end());
+});
+router.get("/", (req, res) => {
+    review_1.default
+        .index()
+        .then((reviews) => res.json(reviews))
+        .catch((err) => res.status(500).send(err));
+});
+router.put("/:itemId", (req, res) => {
+    const { itemId } = req.params;
+    const updatedFields = req.body;
+    review_1.default
+        .get(itemId)
+        .then((review) => {
+        if (!review)
+            throw "Not found";
+        Object.assign(review, updatedFields);
+        return review_1.default.update(itemId, review);
+    })
+        .then((updatedProfile) => res.json(updatedProfile))
+        .catch((err) => res.status(404).end());
+});
+exports.default = router;

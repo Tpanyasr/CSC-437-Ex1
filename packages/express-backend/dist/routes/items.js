@@ -13,10 +13,17 @@ router.post("/", (req, res) => {
         .then((item) => res.status(201).send(item))
         .catch((err) => res.status(500).send(err));
 });
-router.get("/item/:itemId", (req, res) => {
-    const { itemName } = req.params;
+router.get("/", (req, res) => {
     item_1.default
-        .get(itemName)
+        .index()
+        .then((items) => res.json(items))
+        .catch((err) => res.status(500).send(err));
+});
+router.get("/:itemId", (req, res) => {
+    const { itemId } = req.params;
+    console.log("Getting item", itemId);
+    item_1.default
+        .get(itemId)
         .then((item) => {
         if (!item)
             throw "Not found";

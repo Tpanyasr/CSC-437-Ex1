@@ -1,23 +1,30 @@
 import express, { Request, Response } from "express";
 import { Item } from "ts-models";
-import item from "../item";
+import items from "../item";
 
 const router = express.Router();
 
 router.post("/", (req: Request, res: Response) => {
   const newItem = req.body;
 
-  item
+  items
     .create(newItem)
     .then((item: Item) => res.status(201).send(item))
     .catch((err) => res.status(500).send(err));
 });
 
-router.get("/item/:itemId", (req: Request, res: Response) => {
-  const { itemName } = req.params;
+router.get("/", (req: Request, res: Response) => {
+  items
+    .index()
+    .then((items: Item[]) => res.json(items))
+    .catch((err) => res.status(500).send(err));
+});
 
-  item
-    .get(itemName)
+router.get("/:itemId", (req: Request, res: Response) => {
+  const { itemId } = req.params;
+  console.log("Getting item", itemId);
+  items
+    .get(itemId)
     .then((item: Item | undefined) => {
       if (!item) throw "Not found";
       else res.json(item);

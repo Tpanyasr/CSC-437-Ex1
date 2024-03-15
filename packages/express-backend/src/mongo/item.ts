@@ -4,7 +4,7 @@ import { Item } from "ts-models"; // Import Item interface
 // Define the Mongoose schema for the item
 const itemSchema = new Schema<Item>(
     {
-        itemId: { type: Number, required: true },
+        itemId: { type: String, required: true },
         name: { type: String, required: true, trim: true },
         price: { type: Number, required: true },
         description: { type: String, required: true, trim: true },

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
+// import reviewSchema from "./review"; // Import the review sub-schema
 // Mongoose schema for the profile
 const profileSchema = new mongoose_1.Schema({
     userid: { type: String, required: true, trim: true },

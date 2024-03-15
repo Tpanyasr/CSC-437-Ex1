@@ -11,7 +11,7 @@ const reviewSchema = new Schema<Review>(
         itemId: { type: String, required: true, trim: true },
         rating: { type: Number, required: true }
     },
-    { _id: false }
+    { collection: "reviews" }
 );
 
 const ReviewModel = model<Review>("Review", reviewSchema);

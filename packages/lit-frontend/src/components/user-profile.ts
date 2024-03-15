@@ -36,16 +36,10 @@ export class UserProfileElement extends LitElement {
     const { name, contactInfo, sizes } = (this.profile ||
       {}) as Profile;
 
-    if (!sizes) {
-      return html`<div>Loading...</div>`;
-    }
 
-    return html`
+      return html`
       <article>
         <h2>Your Profile</h2>
-        <div class="pfp_container">
-          <div class="circle" style="background-color: #b91111"></div>
-        </div>
         <section class="user-info">
           <form>
             <label for="name">Name:</label><br />
@@ -79,7 +73,7 @@ export class UserProfileElement extends LitElement {
           </form>
         </section>
       </article>
-      `;
+    `;
   }
 //  <section class="user-reviews">
 //     <h2>Your Reviews</h2>
@@ -98,7 +92,33 @@ export class UserProfileElement extends LitElement {
 //       `
 //     )}
 //   </section>
-  static styles = [css``];
+  static styles = [css`article {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  .user-info,
+  .user-size {
+    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }`];
   
   _fetchData(path: string) {
     fetch(serverPath(path))
@@ -111,21 +131,21 @@ export class UserProfileElement extends LitElement {
       .then((json: unknown) => {
         if (json) this.using = json as Profile;
       });
-  }
-
-  _fetchReviewData(path: string) {
-    fetch(serverPath(path))
-    .then((response) => {
+    }
+    
+    _fetchReviewData(path: string) {
+      fetch(serverPath(path))
+      .then((response) => {
         if (response.status === 200) {
-        return response.json();
+          return response.json();
         }
         return null;
     })
     .then((json: unknown) => {
-        if (json) this.reviews = json as Review[];
+      if (json) this.reviews = json as Review[];
     });
-}
-
+  }
+  
   connectedCallback() {
     console.log("Connected callback");
     if (this.path) {
@@ -133,29 +153,45 @@ export class UserProfileElement extends LitElement {
     }
     super.connectedCallback();
   }
-
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     if (name === "path" && oldValue !== newValue && oldValue) {
       this._fetchData(newValue);
     }
     super.attributeChangedCallback(name, oldValue, newValue);
   }
-}
-
-@customElement("user-profile-edit")
-export class UserProfileEditElement extends UserProfileElement {
-  render() {
-    console.log("Rendering form", this.profile);
-
-    return html``;
   }
-
-  static styles = [...UserProfileElement.styles, css``];
-
-  // _handleSubmit(ev: Event) {
-  //   ev.preventDefault(); // prevent browser from submitting form data itself
-
-  //   const target = ev.target as HTMLFormElement;
+  
+  
+  @customElement("user-profile-edit")
+  export class UserProfileEditElement extends UserProfileElement {
+    render() {
+      console.log("Rendering form", this.profile);
+      
+      return html``;
+    }
+    
+    static styles = [...UserProfileElement.styles, css``];
+    
+    _putData(json: Profile) {
+      fetch(serverPath(this.path), {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(json),
+      })
+      .then((response) => {
+        if (response.status === 200) return response.json();
+        else return null;
+      })
+      .then((json: unknown) => {
+        if (json) this.using = json as Profile;
+      })
+      .catch((err) => console.log("Failed to PUT form data", err));
+    }
+    
+    // _handleSubmit(ev: Event) {
+      //   ev.preventDefault(); // prevent browser from submitting form data itself
+      
+      //   const target = ev.target as HTMLFormElement;
   //   const formdata = new FormData(target);
   //   const entries = Array.from(formdata.entries())
   //     .map(([k, v]) => (v === "" ? [k] : [k, v]))
@@ -165,37 +201,10 @@ export class UserProfileEditElement extends UserProfileElement {
   //         : [k, v]
   //     );
   //   const json = Object.fromEntries(entries);
-
+  
   //   this._putData(json);
   // }
-
-  _putData(json: Profile) {
-    fetch(serverPath(this.path), {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(json),
-    })
-      .then((response) => {
-        if (response.status === 200) return response.json();
-        else return null;
-      })
-      .then((json: unknown) => {
-        if (json) this.using = json as Profile;
-      })
-      .catch((err) => console.log("Failed to PUT form data", err));
-  }
-
   
-  // Function to generate star rating HTML based on the review's rating
-  generateStarRating(rating: number) {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(html`<span class="fa fa-star checked"></span>`);
-      } else {
-        stars.push(html`<span class="fa fa-star"></span>`);
-      }
-    }
-    return stars;
-  }
+  
+ 
 }

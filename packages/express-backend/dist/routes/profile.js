@@ -15,6 +15,7 @@ router.post("/", (req, res) => {
 });
 router.get("/:userid", (req, res) => {
     const { userid } = req.params;
+    console.log("Getting profile", userid);
     profiles_1.default
         .get(userid)
         .then((profile) => {

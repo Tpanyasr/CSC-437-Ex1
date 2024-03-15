@@ -1,9 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 * {
   box-sizing: border-box;
   /* Add more styles as needed */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* or overflow: visible, depending on your layout */
 }
 
 body {
@@ -11,141 +18,55 @@ body {
   padding-left: 15px;
   padding-right: 10px;
   background-color: var(--color-background-page);
-
-
+  height: 100%;
 }
 
-
-/*IMAGES*/
-.main-img{
-    max-height: 440px;
-    max-width: 662px;
-    width: 100%;
-    height: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
-    object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
-
+.entire-app{
+  width: 100%;
+  height: 100%;
 }
-.clothing-grid{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
-
-}
-.store-img-container{
-    max-height: 150px;
-    max-width: 150px;
-    height: 150px;
-    width: 150px;
-    margin: 10px;
-    border-style: solid;
-    box-shadow: 5px 5px #ccc;
-    border-color: #ccc;
-    border-width: 1px;
-    
-}
-
-.store-img{
-    object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
-    width: 100%;
-    height: 100%;
-}
-.card-img, .recommendation-img{
-    max-height: 225px;
-    max-width: 225px;
-    width: 100%;
-    height: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
-    object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
-}
-
-
 
 /*NAV BAR*/
 nav {
-    padding: 1.5%;
-    padding-left: 5%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
-  }
-  .link_container {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-
-  }
-  
-  .nav_link {
-    text-decoration: none;
-
-  }
-  .logo {
-    width: 100%;
-    height: auto;
-  }
-  .logo-container{
-      display: flex;
-      justify-content: center;
-      width:14%
-  }
-  
-  button {
-    background-color: #171209;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-  
-  }
-
-/* FOR CARDS */
-/*ONLY FOR CLOTHING*/
-.container_items{
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  padding: 1.5%;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom-color: black;
+  border-width: 2px;
+  border-bottom-style: solid;
 }
-.clothing-item {
-    
-    border: 1px solid #ccc;
-    background-color: var(--card-color);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px #ccc;
-    max-height: 500px;
-    max-width: 330px;
-    width: 100%;
-    height: 100%;
-    margin-left: 2%;
-    margin-top: 20px;
-    margin-bottom: 3%;
-    object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
+.link_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
 }
-.buy-link{
-    width: 25%;
+
+.logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  width: 25%;
 }
 
 
-.section-name{
-    margin-top: var(--section-name-margin-top);
-    margin-left: var(--section-name-margin-left);
+/*This is for the categories tags for the items*/
+
+.category-tag {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 3px 8px;
+  background-color: #dfc9c9;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #333;
 }
+
+/*  */

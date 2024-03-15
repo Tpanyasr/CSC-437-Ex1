@@ -1,6 +1,6 @@
 import { Schema, Model, Document, model } from "mongoose";
 import { Profile, Review } from "ts-models"; // Import Profile and Review interfaces
-import reviewSchema from "./review"; // Import the review sub-schema
+// import reviewSchema from "./review"; // Import the review sub-schema
 
 
 // Mongoose schema for the profile

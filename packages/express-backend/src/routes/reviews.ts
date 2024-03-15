@@ -1,36 +1,52 @@
-import { Document } from "mongoose";
-import { Review } from "ts-models";
-import ReviewModel from "../mongo/review";
+import express, { Request, Response } from "express";
+import {Review } from "ts-models";
+import reviews from "../review";
 
-function index(): Promise<Review[]> {
-  return ReviewModel.find();
-}
+const router = express.Router();
 
-function get(userid: String): Promise<Review> {
-  return ReviewModel.find({ userid })
-    .then((list) => list[0])
-    .catch((err) => {
-      throw `${userid} Not Found`;
-    });
-}
+router.post("/", (req: Request, res: Response) => {
+  const newReview = req.body;
+  console.log("Creating Review", newReview)
+  reviews
+    .create(newReview)
+    .then((review: Review) => res.status(201).send(review))
+    .catch((err) => res.status(500).send(err));
+});
 
-function create(Review: Review): Promise<Review> {
-  const p = new ReviewModel(Review);
-  return p.save();
-}
+router.get("/:itemId", (req: Request, res: Response) => {
+  const { itemId } = req.params;
+  console.log("Getting Review", itemId)
+  reviews
+    .get(itemId)
+    .then((review: Review | undefined) => {
+      if (!review) throw "Not found";
+      else res.json(review);
+    })
+    .catch((err) => res.status(404).end());
+});
 
-function update(
-  userid: String,
-  Review: Review
-): Promise<Review> {
-  return new Promise((resolve, reject) => {
-    ReviewModel.findOneAndUpdate({ userid }, Review, {
-      new: true
-    }).then((Review) => {
-      if (Review) resolve(Review);
-      else reject("Failed to update Review");
-    });
-  });
-}
+router.get("/", (req: Request, res: Response) => {
+  reviews
+    .index()
+    .then((reviews: Review[]) => res.json(reviews))
+    .catch((err) => res.status(500).send(err));
+});
 
-export default { index, get, create, update };
+router.put("/:itemId", (req: Request, res: Response) => {
+  const { itemId } = req.params;
+  const updatedFields = req.body;
+
+  reviews
+    .get(itemId)
+    .then((review: Review | undefined) => {
+      if (!review) throw "Not found";
+      
+      Object.assign(review, updatedFields);
+      
+      return reviews.update(itemId, review);
+    })
+    .then((updatedProfile: Review) => res.json(updatedProfile))
+    .catch((err) => res.status(404).end());
+});
+
+export default router;

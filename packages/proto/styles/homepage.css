@@ -12,35 +12,6 @@
   .main-img {
     width: 50%;
   }
-  body {
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  /*NAV BAR*/
-  nav {
-    padding: 1.5%;
-    padding-left: 5%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
-  }
-  .link_container {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-  }
-  
-  .nav_link{
-      text-decoration: none;
-  }
-  .logo{
-    width: 10%;
-    height: auto;
-  }
 
   /* ITEMS */
   .container_items{

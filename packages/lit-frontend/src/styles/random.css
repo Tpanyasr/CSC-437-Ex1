@@ -1,15 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-* {
-  box-sizing: border-box;
-  /* Add more styles as needed */
-}
-
-body {
-  margin: 0;
-  padding-left: 15px;
-  padding-right: 10px;
-}
 /*IMAGES*/
 .main-img{
     max-height: 440px;
@@ -57,54 +46,40 @@ body {
     object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
 }
 
-body {
-    font-family: "Montserrat", sans-serif;
+
+
+/* FOR CARDS */
+/*ONLY FOR CLOTHING*/
+.container_items{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.clothing-item {
+    
+    border: 1px solid #ccc;
+    background-color: var(--card-color);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px #ccc;
+    max-height: 500px;
+    max-width: 330px;
+    width: 100%;
+    height: 100%;
+    margin-left: 2%;
+    margin-top: 20px;
+    margin-bottom: 3%;
+    object-fit: contain; /* Maintain aspect ratio and add padding if necessary */
+}
+.buy-link{
+    width: 25%;
 }
 
 
-/*NAV BAR*/
-nav {
-    padding: 1.5%;
-    padding-left: 5%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    border-bottom-color: black;
-    border-width: 2px;
-    border-bottom-style: solid;
-  }
-  .link_container {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-  }
-  
-  .nav_link {
-    text-decoration: none;
-  }
-  .logo {
-    width: 100%;
-    height: auto;
-  }
-  .logo-container{
-      display: flex;
-      justify-content: center;
-      width:14%
-  }
-  
-  button {
-    background-color: #171209;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-  
-  }
+.section-name{
+    margin-top: var(--section-name-margin-top);
+    margin-left: var(--section-name-margin-left);
+}
