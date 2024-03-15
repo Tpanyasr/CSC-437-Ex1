@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Information</title>
+    <link rel="stylesheet" href="./styles/payment.css " />
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/page.css" />
+    <link rel="stylesheet" href="./styles/tokens.css" />
+    <script
+      src="https://kit.fontawesome.com/975639f095.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <a href="./index.html" class ="logo-container">
+        <img src="./images/Bobateadog-logos_transparent.png" alt="Logo" class="logo">
+      </a>
+      <div class="link_container">
+        <a class="nav_link" href="./index.html">Home</a>
+        <a class="nav_link" href="./stores.html">Stores</a>
+        <a class="nav_link" href="./profile.html">Profile</a>
+        <a class="nav_link" href="./shoppingcart.html">Shopping Cart</a>
+      </div>
+    </nav>
+    <h2 class="section-name">Payment Information</h2>
+
+    <form>
+      <label for="cardNumber">Credit Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" required />
+
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" id="expiryDate" name="expiryDate" required />
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" required />
+
+      <button type="button" onclick="alert('Payment information submitted.');">
+        Submit Payment Information
+      </button>
+    </form>
+    <div class="other-option">
+      <p>
+        Pick up option is also available at this address: Lorem ipsum, dolor sit
+        amet consectetur adipisicing.
+      </p>
+    </div>
+  </body>
+</html>

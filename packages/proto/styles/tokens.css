@@ -1,0 +1,12 @@
+:root {
+    --color-background-header: #171209;
+    --color-background-page: #eee5d4;
+    --color-text: #ffffff;
+    --font-size-small: 16px;
+    --font-size-big: 30px;
+    --main-img-width: 50%;
+    --logo-width: 10%;
+    --card-color: rgb(250, 253, 255);
+    --section-name-margin-top: 20px;
+    --section-name-margin-left: 30px;
+}
