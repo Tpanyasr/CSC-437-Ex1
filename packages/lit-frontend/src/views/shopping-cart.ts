@@ -81,6 +81,9 @@ export class ShoppingCart extends LitElement {
     const index = this.userProfile.cart.indexOf(itemId);
     if (index > -1) {
       this.userProfile.cart.splice(index, 1);
+      delete this.itemCounts[itemId]; // Remove from local counts
+      // Trigger re-render
+      this.requestUpdate();
       // Then make the API call to update the user's cart
       try {
         const response = await fetch(serverPath(this.path), {
@@ -95,14 +98,18 @@ export class ShoppingCart extends LitElement {
             `Failed to update user profile: ${response.status} ${response.statusText}`
           );
         }
-        console.log("Item removed:", itemId);
+        // Re-fetch user profile to ensure UI reflects the updated state
+        await this.fetchUserProfile();
       } catch (error) {
         console.error("Error removing item from cart:", error);
         // If there's an error with the API call, revert the local change
         this.userProfile.cart.splice(index, 0, itemId);
+        this.itemCounts[itemId] = 1; // Restore local counts
+        // Trigger re-render to revert UI changes
+        this.requestUpdate();
       }
     }
-  }
+}
 
   getTotalPrice() {
     let totalPrice = 0;

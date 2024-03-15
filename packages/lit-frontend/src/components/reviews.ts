@@ -20,7 +20,7 @@ export class ItemReviews extends LitElement {
                 <p class="review-text">${review.reviewText}</p>
                 <div class="review-info">
                   <p class="review-rating">
-                    Rating: ${this.generateStarRating(review.rating)}
+                    Rating: ${this.review.rating}${this.generateStarRating(review.rating)}
                   </p>
                   <p class="review-date">Posted on: ${review.datePosted}</p>
                   <p class="review-user">By: ${review.userId}</p>

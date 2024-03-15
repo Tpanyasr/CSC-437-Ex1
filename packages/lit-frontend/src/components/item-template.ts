@@ -123,7 +123,7 @@ export class ItemPage extends LitElement {
 
       }
       await this.updateProfileCart("bobateadog", this.usingProfile.cart);
-      alert('${amountToAdd} items have been added to your shopping cart!');
+      alert('Items have been added to your shopping cart!');
 
     }
     // if (this.using && this.profile) {

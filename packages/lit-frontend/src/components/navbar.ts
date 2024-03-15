@@ -27,13 +27,23 @@ export class Navbar extends LitElement {
           <img src="/images/logo.png" alt="Logo" class="logo" />
         </a>
         <div class="link_container">
-          <a href="">Stores</a>
-          <a href="/app/shopping-cart">Shopping Cart</a>
+
           <drop-down>
             <img src="/images/profilepic.png" alt="user" />
             <ul slot="menu">
               <li><a href="/app/profile">Profile</a></li>
               <li><a href="#" @click=${this._signOut}>Logout</a></li>
+              <li>
+                <a href="/app/shopping-cart">Shopping Cart</a>
+  </li>
+              <li>
+
+                <a href="/app/">Settings</a>
+              </li>
+              <li>
+
+                <a href="/app/">Wishlist</a>
+              </li>
             </ul>
           </drop-down>
         </div>
@@ -60,6 +70,8 @@ export class Navbar extends LitElement {
       .link_container {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        margin-right: 80px;
       }
 
       .link_container a {

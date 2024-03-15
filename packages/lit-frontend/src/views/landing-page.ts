@@ -19,7 +19,7 @@ export class LandingPage extends LitElement {
 
   render() {
     return html`
-        <search-bar></search-bar>
+        <search-bar @search="${this.handleSearch}"></search-bar>
       <main class = "parent">
         <div class="container_items">
           ${this.items.map(
@@ -44,8 +44,7 @@ export class LandingPage extends LitElement {
           )}
         </div>
       </main>
-      <!-- Render the ShoppingCart component -->
-      <cart-page></cart-page>
+
     `;
   }
 
@@ -114,6 +113,19 @@ export class LandingPage extends LitElement {
     } catch (error) {
       console.error("Failed to fetch items data:", error);
     }
+  }
+
+   async handleSearch(event: CustomEvent) {
+    const query = event.detail;
+    if (!query) {
+      // If the query is empty, show all items
+      this.filteredItems = this.items;
+      return;
+    }
+    // Filter items based on the search query
+    this.filteredItems = this.items.filter((item) =>
+      item.name.toLowerCase().includes(query.toLowerCase())
+    );
   }
 }
 
