@@ -3,11 +3,12 @@ import { customElement, property } from "lit/decorators.js";
 import { serverPath } from "./rest";
 import { Review } from "ts-models"; // Import the Review interface
 
-@customElement("item-reviews")
-export class ItemReviews extends LitElement {
+@customElement("item-reviews-profile")
+export class ItemReviewsProfile extends LitElement {
   @property({ type: Array }) reviews: Review[] = [];
   @property({ type: Boolean }) collapsed: boolean = true;
   @property({ type: String }) itemId: string = "";
+    @property({ type: String }) userId: string = "bobateadog";
 
   render() {
     return html`
@@ -34,7 +35,7 @@ export class ItemReviews extends LitElement {
   }
   updated(changedProperties: PropertyValues) {
     super.updated(changedProperties);
-    if (changedProperties.has("itemId")) {
+    if (changedProperties.has("userId")) {
       this._fetchItemData("/reviews");
     }
   }
@@ -48,7 +49,7 @@ export class ItemReviews extends LitElement {
         );
       }
       const json: Review[] = await response.json();
-      this.reviews = json.filter((review) => review.itemId === this.itemId);
+      this.reviews = json.filter((review) => review.userId === this.userId);
     } catch (error) {
       console.error("Failed to fetch reviews data:", error);
     }

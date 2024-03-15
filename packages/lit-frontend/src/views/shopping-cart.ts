@@ -100,6 +100,7 @@ export class ShoppingCart extends LitElement {
         }
         // Re-fetch user profile to ensure UI reflects the updated state
         await this.fetchUserProfile();
+        window.location.reload(); // Refresh the page
       } catch (error) {
         console.error("Error removing item from cart:", error);
         // If there's an error with the API call, revert the local change
