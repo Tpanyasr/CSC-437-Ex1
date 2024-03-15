@@ -81,7 +81,7 @@ export class ItemPage extends LitElement {
           class="review-container"
           itemId=${this.item.itemId}
         ></item-reviews>
-
+        <h2 class="section-name">Recommended for You</h2>
         <div class="container_items">
           ${this.recommendations
             ? this.recommendations.map(
